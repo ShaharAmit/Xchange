@@ -1,0 +1,161 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+footer, header, article, section, main, nav, aside {
+    display: block;
+}
+header{
+    min-width: 510px;
+    height: 47px;
+    border: solid 1px #6495d7;
+    background: #4990e2;
+}
+header > a{
+    background: url("../../../images/logo.png") 0 3px no-repeat;
+    width: 89px;
+    height: 42px;
+    display: block;
+    margin: 0 auto;
+}
+header label{
+    float: left;
+    line-height: 47px;
+    margin-left: 5px;
+}
+.clear{
+    clear: both;
+}
+main{
+    text-align: center;
+}
+nav{
+    display: none;
+    background: #d8d8d8;
+    float: right;
+    width: 140px;
+    border: solid 1px #c8c8c8;
+    min-height: 465px;
+}
+nav ul{
+    list-style: none;
+}
+nav li{
+    background: #9b9b9b;
+    margin-bottom: 5px;
+    text-align: right;
+    height: 30px;
+}
+nav a{
+    line-height: 30px;
+    text-decoration: none;
+    color: white;
+}
+nav li:hover{
+    background: #4990e2;
+}
+nav li > img{
+    margin: 3px 0 1px 5px;
+    float: left;
+}
+#avatar{
+    float: left;
+    margin: 8px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+}
+#avatar > img{
+    margin: 5px;
+}
+#avatars{
+    margin: 0 auto;
+    max-width: 425px;
+    max-height: 204px;
+    overflow: hidden;
+}
+.mainAvatar{
+    background: url("../../../images/mainAvatar.png") 5px 5px no-repeat;
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin: 0 auto;
+}
+section{
+    margin: 0 0 20px 12px;
+    width: 90px;
+    height: 90px;
+    border: solid 1px black;
+    border-radius: 50%;
+    float: left;
+}
+section > img{
+    margin-top: 5px;
+}
+form{
+    margin: 0 auto;
+    max-width: 320px;
+    position: relative;
+    min-height: 220px;
+    overflow: hidden;
+}
+#date{
+    position: absolute;
+    left: 82px;
+    top: 21px;
+    font-size: 12px;
+}
+#firstDate{
+    position: absolute;
+    left: 0;
+    top: 43px;
+}
+#secondDate{
+    position: absolute;
+    right: 0;
+    top: 43px;
+}
+#buy{
+    position: absolute;
+    top: 75px;
+    left: 114px;
+    font-size: 12px;
+}
+#coin{
+    position: absolute;
+    top: 96px;
+    left: 0;
+}
+#amount{
+    position: absolute;
+    top: 96px;
+    right: 0;
+}
+button{
+    position: absolute;
+    top: 135px;
+    left: 0;
+    font-size: 25px;
+}
+#ilsAmount{
+    position: absolute;
+    top: 122px;
+    right: 0;
+    font-size: 50px;
+}
+.arrow{
+    margin: 0 auto;
+}
+.menu{
+    float: right;
+    margin: 8px;
+    width: 30px;
+    height: 30px;
+}
+.navDis{
+    display: block;
+}
+
+
+

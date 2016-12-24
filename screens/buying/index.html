@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Xchange</title>
+        <link rel="stylesheet" href="includes/buying.css">
+    </head>
+    <body>
+        <header>
+            <div id="avatar"><img src="../../images/avatar.png"></div>
+            <label>חן חפץ</label>
+            <div class="menu"><img src="../../images/menu.png"></div>
+            <a id="logo" href="#"></a>
+            <div class="clear"></div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="../home/index.html">בית</a><img src="../../images/home.png"></li>
+                <li><a href="#">קנייה</a><img src="../../images/buying.png"></li>
+                <li><a href="../selling/index.html">מכירה</a><img src="../../images/selling.png"></li>
+                <li><a href="../messages/index.html">הודעות</a><img src="../../images/mail.png"></li>
+                <li><a href="../meeting/index.html">עסקאות פעילות</a><img src="../../images/meetings.png"></li>
+                <li><a href="../profile/index.html">פרופיל</a><img src="../../images/menuAvatar.png"></li>
+            </ul>
+        </nav>
+        <main>
+            <form>
+                <label id="date">:רוצה לקנות בין תאריכים</label>
+                <input type="date" id="firstDate" name="firstDate" title="first date">
+                <input type="date" id="secondDate" name="secondDate" title="second date">
+                <label id="buy">:רוצה לקנות מט"ח</label>
+                <input type="number" id="amount" name="amount" title="pick amount">
+                <select id="coin" name="coin" title="choose coin">
+                        <option value="USD">USD</option>
+                        <option value="EURO">EURO</option>
+                        <option value="AUD">AUD</option>
+                        <option value="INR">INR</option>
+                        <option value="NPR">NPR</option>
+                        <option value="BAHT">BAHT</option>
+                        <option value="HKD">HKD</option>
+                        <option value="CNY">CNY</option>
+                </select>
+                <label id="ilsAmount">&#x20aa;&nbsp;0.00</label>
+                <button>חפש</button>
+            </form>
+            <img class="arrow" src="../../images/arrowUp.png">
+            <div id="avatars">
+                <div class="clear"></div>
+            </div>
+            <img class="arrow" src="../../images/arrowDown.png">
+        </main>
+        <div class="clear"></div>
+        <script src="../../includes/jquery-3.1.1.min.js"></script>
+        <script src="includes/buying.js"></script>
+    </body>
+</html>
