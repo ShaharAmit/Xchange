@@ -1,0 +1,52 @@
+/* main */
+main > div{
+    padding-top: 64px;
+    position: relative;
+    max-width: 334px;
+}
+section{
+    width: 90px;
+    height: 90px;
+    background: url("../../../images/mainAvatar.png") 12px 12px no-repeat;
+    float: left;
+    border: solid 1px black;
+    border-radius: 50%;
+}
+#me{
+    margin: 0 30px 0 10px;
+}
+#else{
+    margin-right: 10px;
+}
+#change{
+    width: 70px;
+    height: 70px;
+    background: url("../images/change.png") no-repeat;
+    float: left;
+    margin: 10px 30px 0 0;
+}
+#myMoney{
+    float: left;
+    font-size: 35px;
+    margin-top: 5px;
+}
+span{
+    font-size: 25px;
+}
+#hisMoney{
+    float: right;
+    font-size: 35px;
+    margin-top: 5px;
+}
+#map{
+    width: 250px;
+    height: 169px;
+    margin-top: 80px;
+    background: url("../images/map.png") no-repeat;
+}
+p{
+    text-align: center;
+}
+#place{
+    margin: 10px 0 10px 0;
+}

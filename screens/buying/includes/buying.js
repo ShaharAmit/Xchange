@@ -1,26 +1,45 @@
 $(function(){
-    var clear = $("#clear"),
-    obj = $("div.clear", "#avatars").last(),
+    var clear=$("#clear"),
+        obj=$("div.clear", "#avatars").last(),
         avatarsNum=0,
         i,
-        date = $('[type="date"]'),
-        menu = $('.menu'),
-        nav = $("nav");
-
-    $('nav ul li a').each(function(){
-            var href = $(this).attr('href');
-            if(href == "#" ) {
-                $(this).parent().css("background","#4990e2")
-            }
-        });
+        people=$("#avatars"),
+        arrowUp=$("#arrowUp"),
+        arrowDown=$("#arrowDown"),
+        scroll=0,
+        scrollTop;
     for(i=0;i<24;i++){
         InSection();
     }
+    scrollTop=avatarsNum*25.5;
     function InSection(){
-        obj.before("<section><img src='../../images/mainAvatar.png'></section>");
+        obj.before("<section></section>");
         avatarsNum++;
     }
-    menu.click(function () {
-        nav.toggleClass("navDis");
+
+    $("form").submit(function() {
+        people.slideDown();
+        arrowDown.slideDown();
+        arrowUp.slideDown();
+        return false;
+    });
+    arrowUp.click(function() {
+        console.log(scroll);
+        if(scroll<scrollTop-224){
+            scroll+=112;
+            people.animate({scrollTop: scroll},500);
+        }
+        return false;
+    });
+    arrowDown.click(function() {
+        console.log(scroll);
+        if(scroll>0){
+            scroll-=112;
+            people.animate({scrollTop: scroll},500);
+        }
+        return false;
+    });
+    $("#avatar").click(function () {
+        location.href = "../profile/index.html";
     });
 });
