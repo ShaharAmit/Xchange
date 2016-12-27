@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../../includes/all.css">
+    <script src="../../includes/jquery-3.1.1.min.js" async></script>
+    <script src="../../includes/all.js" async></script>
+
+    <style>
+        #map{
+            width: 600px;
+            height: 400px;
+            background-color: gray;
+        }
+    </style>
 </head>
 <body>
-
+    <section id="map"></section>
+    <script>initMap();</script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByCIqDoXlzUHYplOTuvD8H2lrBOEuaBc8&callback=initMap"></script>
 </body>
 </html>
