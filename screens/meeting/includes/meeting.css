@@ -1,8 +1,8 @@
 /* main */
 main > div{
     padding-top: 64px;
-    position: relative;
     max-width: 334px;
+    overflow: hidden;
 }
 section{
     width: 90px;
