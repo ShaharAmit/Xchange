@@ -2,11 +2,17 @@
 main > div{
     overflow: hidden;
 }
-#avatars{
+#scroll{
     display: none;
     max-width: 425px;
-    max-height: 204px;
+    max-height: 269px;
     overflow: hidden;
+}
+#avatars{
+    width: 440px;
+    height: 269px;
+    overflow: scroll;
+    padding-bottom: 15px;
 }
 .mainAvatar{
     background: url("../../../images/mainAvatar.png") 5px 5px no-repeat;

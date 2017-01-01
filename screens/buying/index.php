@@ -31,17 +31,11 @@
                     <label id="ilsAmount">&#x20aa;&nbsp;0.00</label>
                     <button type="submit">חפש</button>
                 </form>
-<!--
                 <div id="arrowUp"></div>
--->
-                <div id="scroll">
-                    <div id="avatars">
-                        <div class="clear"></div>
-                    </div>
+                <div id="avatars">
+                    <div class="clear"></div>
                 </div>
-<!--
                 <div id="arrowDown"></div>
--->
             </div>
         </main>
         <div class="clear"></div>

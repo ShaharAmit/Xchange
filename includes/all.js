@@ -1,5 +1,6 @@
 $(function() {
-    var body=$("body");
+    var body=$("body"),
+        current = (window.location.pathname).replace('/Xchange/screens/','');
 
     body.prepend("<header></header><nav></nav>");
     var nav=$("nav");
@@ -19,10 +20,11 @@ $(function() {
         "<li><a href='../profile/index.html'>פרופיל</a></li>" +
             "</ul>"
     );
+    console.log($("nav  a"));
     $('nav ul li a').each(function(){
-        var href = $(this).attr('href');
-        if(href == "#" ) {
-            $(this).parent().css("background-color","#4990e2");
+        var href = $(this).attr('href').replace('../','');
+        if(href == current ) {
+            $(this).css({"background-color": "#080808", "color": "#ffffff"});
         }
     });
     $('.menu').click(function () {
