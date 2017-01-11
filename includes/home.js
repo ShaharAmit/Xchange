@@ -17,7 +17,7 @@ $(function() {
         "<li><a href='../messages/index.html'>הודעות</a></li>" +
         "<li><a href='../meeting/index.html'>עסקאות</a></li>" +
         "<li><a href='../profile/index.html'>פרופיל</a></li>" +
-            "</ul>"
+        "</ul>"
     );
     console.log($("nav  a"));
     $('nav ul li a').each(function(){

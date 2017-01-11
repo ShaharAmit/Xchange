@@ -3,21 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <title>Xchange</title>
-        <link rel="stylesheet" href="includes/login.css">
+        <link rel="stylesheet" href="includes/all.css">
+        <script src="includes/jquery-3.1.1.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     <body>
         <header>
-            <div id="avatar"><img src="images/avatar.png"></div>
-            <a id="logo" href="#"></a>
+            <nav>
+                <ul  class="nav nav-pills">
+                    <li role="presentation"><a href='screens/meeting/index.html'>עסקאות</a></li>
+                    <li role="presentation"><a href='screens/profile/index.html'>הודעות</a></li>
+                    <li role="presentation"><a href='screens/messages/index.html'>מכירת מט&#8221;ח</a></li>
+                    <li role="presentation"><a href='screens/buying/index.html'>קניית מט&#8221;ח</a></li>
+                </ul>
+            </nav>
+            <div> <a id='profile' href="#"></a></div>
+            <a id='logo' href="#"></a>
             <div class="clear"></div>
         </header>
         <main>
-            <div id="buying"></div>
-            <div id="avatars"></div>
+            <div>
+                <div class="topLine"></div>
+                <h1>מוצאים - מחליפים - חוסכים</h1>
+                <div class="bottomLine"></div>
+            </div>
         </main>
-        <nav>
-
-        </nav>
-        <div class="clear"></div>
     </body>
 </html>
