@@ -32,7 +32,7 @@
                     <button type="submit">חפש</button>
                 </form>
                 <div id="arrowUp"></div>
-                <div id="avatars">
+                <div id="scrollBuying">
                     <div class="clear"></div>
                 </div>
                 <div id="arrowDown"></div>

@@ -1,6 +1,6 @@
 $(function(){
     var clear=$("#clear"),
-        obj=$("div.clear", "#avatars").last(),
+        obj=$("div.clear", "#scrollBuying").last(),
         avatarsNum=0,
         i,
         form = $("form"),
@@ -8,19 +8,19 @@ $(function(){
         arrowUp=$("#arrowUp"),
         arrowDown=$("#arrowDown"),
         scroll=0,
-        scrollTop;
+        button=$("#button");
     for(i=0;i<24;i++){
         InSection();
     }
-/*
-    scrollTop=avatarsNum*25.5;
-*/
+
+    console.log(button);
     function InSection(){
         obj.before("<section></section>");
         avatarsNum++;
     }
 
-    form.submit(function(e) {
+    button.click(function(e) {
+        console.log("f");
 /*        e.preventDefault();
         $.ajax({
             type: 'post',

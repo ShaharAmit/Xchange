@@ -1,4 +1,8 @@
 /* all */
+html, body {
+    height: 100%;
+    width: 100%;
+}
 *{
     margin: 0 auto;
     padding: 0;
@@ -18,7 +22,7 @@ header{
     width: 139px;
     height: 68px;
     display: block;
-    margin: 0 auto;
+    margin: 16px 0 0 29px;
     float: left;
     /*16 top
     left 29*/
@@ -27,44 +31,27 @@ header{
     background: /*url("")*/black no-repeat;
     width: 60px;
     height: 60px;
+    margin: 15px 20px 0 0;
     /*15 px top
     right 20px*/
     float: right;
     border-radius: 50%;
 }
-
-nav{
+nav {
+    /*
     margin: 0 0 0 139px;
+    */
     height: 100px;
-    max-width: 1000px;
-}
-nav ul{
-    list-style: none;
 }
 nav li{
-    /*
-    margin-top: 17px;
-    */
-    margin-left: 6% !important;
-    text-align: center;
-
+    margin: 15px 0 0 6% !important;
 }
-nav a{
+nav a {
     font-size: 36px;
 }
-.clear{
-    clear: both;
+main{
+    width: 100%;
+    height: 100%;
 }
-main > div{
-    text-align: center;
-}
-.bottomLine{
-    width: 41.7%;
-    height: 0.4%;
-}
-.topLine{
-    width: 41.7%;
-    height: 0.4%;
 
-}
 

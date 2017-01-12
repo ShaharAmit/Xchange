@@ -5,20 +5,37 @@
         <title>Xchange</title>
         <link rel="stylesheet" href="includes/buying.css">
         <link rel="stylesheet" href="../../includes/all.css">
+        <script src="../../includes/jquery-3.1.1.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script
     </head>
     <body>
+        <header>
+            <a id='logo' href="../../index.html"></a>
+            <div> <a id='profile' href="../../screens/profile/index.html"></a></div>
+            <nav>
+                <ul  class="nav nav-pills">
+                    <li role="presentation"><a href='../../screens/meeting/index.html'>עסקאות</a></li>
+                    <li role="presentation"><a href='../../screens/profile/index.html'>הודעות</a></li>
+                    <li role="presentation"><a href='../../screens/messages/index.html'>מכירת מט&#8221;ח</a></li>
+                    <li role="presentation"><a href='../../screens/buying/index.html'>קניית מט&#8221;ח</a></li>
+                </ul>
+            </nav>
+        </header>
         <main>
-            <div>
+            <h1>קניית מט&#8221;ח</h1>
+            <div class="clear"></div>
                 <form>
-                    <label>*</label>
-                    <label>*</label>
-                    <label>*</label>
-                    <label id="date">:רוצה לקנות בין תאריכים</label>
-                    <input type="date" id="firstDate" title="תאריך התחלה" required>
-                    <input type="date" id="secondDate" title="תאריך סיום" required>
+                    <p><input type="date" id="firstDate" title="תאריך התחלה" required><span>*</span></p>
+                    <p><input type="date" id="secondDate" title="תאריך סיום" required><span>*</span></p>
                     <label id="buy">:רוצה לקנות מט"ח</label>
-                    <input name="amount" type="number" id="amount" title="בחר סכום" placeholder="בחר סכום" required>
-                    <select name="from" id="coin" title="choose coin">
+                    <p><select name="from" id="coin" title="choose coin">
                         <option value="USD">USD</option>
                         <option value="EURO">EURO</option>
                         <option value="AUD">AUD</option>
@@ -27,26 +44,24 @@
                         <option value="BAHT">BAHT</option>
                         <option value="HKD">HKD</option>
                         <option value="CNY">CNY</option>
-                    </select>
-                    <label id="ilsAmount">&#x20aa;&nbsp;0.00</label>
-                    <button type="submit">חפש</button>
+                    </select></p>
+                    <p><input name="amount" type="number" id="amount" title="בחר סכום" placeholder="בחר סכום" required><span>*</span></p>
+                    <label id="ilsAmount"><span>&#x20aa;</span>&nbsp;0.00</label>
+                    <div id="button"></div>
                 </form>
-<!--
-                <div id="arrowUp"></div>
--->
+                <div id="scrollNav">
+                    <div id="listType"></div>
+                    <div id="filScore"></div>
+                    <div id="filCash"></div>
+                    <div id="filLocation"></div>
+                </div>
                 <div id="scroll">
-                    <div id="avatars">
+                    <div id="scrollBuying">
                         <div class="clear"></div>
                     </div>
                 </div>
-<!--
-                <div id="arrowDown"></div>
--->
-            </div>
         </main>
         <div class="clear"></div>
-        <script src="../../includes/jquery-3.1.1.min.js"></script>
-        <script src="../../includes/all.js"></script>
         <script src="includes/buying.js"></script>
     </body>
 </html>

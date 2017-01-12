@@ -1,133 +1,168 @@
 /* main */
-main > div{
+body{
     overflow: hidden;
 }
 #scroll{
     display: none;
-    max-width: 425px;
-    max-height: 269px;
-    overflow: hidden;
-}
-#avatars{
-    width: 440px;
+    width: 550px;
     height: 269px;
+    overflow: hidden;
+    padding-left: 2.5%;
+}
+#scrollNav{
+    height: 40px;
+    width: 550px;
+}
+#scrollNav > div{
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    background: black;
+}
+#listType{
+    float: left;
+}
+#filCash{
+    float: right;
+    margin-right: 30px;
+}
+#filLocation{
+    float: right;
+    margin-right: 30px;
+}
+#filScore{
+    float: right;
+}
+h1{
+    text-align: right;
+    width: 250px;
+    padding-right: 60px;
+    float: right;
+}
+#scrollBuying{
+    width: 600px;
+    height: 300px;
     overflow: scroll;
     padding-bottom: 15px;
 }
-.mainAvatar{
-    background: url("../../../images/mainAvatar.png") 5px 5px no-repeat;
-    width: 90px;
-    height: 90px;
-    display: block;
-    margin: 0 auto;
-}
 section{
-    background: url("../../../images/mainAvatar.png") 12px 12px no-repeat;
-    margin: 0 0 20px 12px;
-    width: 90px;
-    height: 90px;
-    border: solid 1px black;
-    border-radius: 50%;
+    background: url("../../../images/mainAvatar.png") center center no-repeat;
+    background-size: 90%;
+    width: 18%;
+    height: 36%;
     float: left;
-}
-#arrowUp{
-    width: 35px;
-    height: 35px;
-    background: url("../images/arrowUp.png") no-repeat;
-    display: none;
-    cursor: pointer;
-}
-#arrowDown{
-    width: 35px;
-    height: 35px;
-    background: url("../images/arrowDown.png") no-repeat;
-    display: none;
-    cursor: pointer;
+    margin-right: 4%;
 }
 /* form */
 form{
-    max-width: 320px;
+    width: 32%;
     position: relative;
-    min-height: 220px;
     overflow: hidden;
 }
-#date{
-    position: absolute;
-    left: 82px;
-    top: 21px;
-    font-size: 12px;
+form > p:nth-of-type(1){
+    position: relative;
+    float: left;
+    width: 47.7%;
+    height: 30px;
+}
+form > p:nth-of-type(2){
+    position: relative;
+    float: right;
+    width: 47.7%;
+    height: 30px;
 }
 #secondDate{
-    position: absolute;
-    left: 0;
-    top: 43px;
+    position: relative;
+    float: left;
     text-align: right;
-    width: 146px;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
+    color: #d9d9d9;
 }
 #firstDate{
-    position: absolute;
-    right: 0;
-    top: 43px;
+    position: relative;
+    float: right;
     text-align: right;
-    width: 146px;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
+    color: #d9d9d9;
+}
+form > p:nth-of-type(3){
+    position: relative;
+    width: 65%;
+    height: 30px;
+    float: left;
 }
 #buy{
-    position: absolute;
-    top: 75px;
-    left: 114px;
-    font-size: 12px;
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    width: 100%;
 }
 #coin{
-    position: absolute;
-    top: 96px;
-    left: 0;
+    position: relative;
+    width: 100%;
     text-align: right;
-    height: 24px;
+    height: 100%;
+    float: left;
     cursor: pointer;
 }
-#amount{
-    position: absolute;
-    top: 96px;
-    right: 0;
-    text-align: right;
-    width: 146px;
-    height: 20px;
+form > p:nth-of-type(4){
+    position: relative;
+    float: right;
+    width: 20%;
+    height: 30px;
 }
-button{
+#amount{
+    position: relative;
+    float: right;
+    text-align: right;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+#button{
     position: absolute;
-    top: 135px;
+    width: 25%;
+    height: 22%;
+    bottom: 25px;
     left: 0;
-    font-size: 25px;
+    border-radius: 10px;
+    background: url(../images/search.png) no-repeat center center;
+    background-size: 100%;
     cursor: pointer;
 }
 #ilsAmount{
-    position: absolute;
-    top: 122px;
-    right: 0;
+    position: relative;
+    float: right;
     font-size: 50px;
+    margin-top: 10px;
 }
-form > label:nth-of-type(1){
+#ilsAmount > span{
+    font-size: 30px;
+}
+form > p > span:nth-of-type(1){
     position: absolute;
     color: #ff0000;
-    top: 43px;
-    right: 139px;
+    right: 2px;
     z-index: 1;
 }
-form > label:nth-of-type(2){
+form > p > span:nth-of-type(2){
     position: absolute;
     color: #ff0000;
     top: 43px;
     left: 3px;
     z-index: 1;
 }
-form > label:nth-of-type(3){
+form > p > span:nth-of-type(3){
     position: absolute;
     color: #ff0000;
     top: 96px;
     right: 139px;
     z-index: 1;
 }
+
 
 

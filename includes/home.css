@@ -1,0 +1,90 @@
+/*main*/
+.bottomLine{
+    width: 41.7%;
+    height: 2px;
+    background: #4990e2;
+    float: right;
+}
+.topLine{
+    width: 41.7%;
+    height: 2px;
+    float: left;
+    background: #4990e2;
+}
+.cards{
+    position: relative;
+    width: 47.4%;
+    height: 36.6%;
+    margin: 1.733% 0 0 1.733%;
+    float: left;
+    background: #f9f9f9;
+    border-radius: 10px;
+    line-height: 36.6%;
+}
+.avatars{
+    margin: 23px 35px 0 0;
+    float: right;
+    width: 34.63%;
+    height: 64%;
+    border-radius: 50%;
+    background: url(../images/mainAvatar.png) no-repeat center center;
+    background-size: 60%;
+    position: relative;
+}
+.likes{
+    position: absolute;
+    background: #d8d8d8;
+    width: 100%;
+    height: 15.7%;
+    bottom: 0;
+    border-radius: 10px;
+}
+.like{
+    margin: 5px 10px 0 10px;
+    width: 5.3%;
+    height: 68%;
+    background: black;
+    float: left;
+}
+.disLike{
+    margin: 5px 10px 0 10px;
+    width: 5.3%;
+    height: 68%;
+    background: black;
+    float: left;
+}
+.likes > p{
+    float: left;
+    margin: 10px 30px 0 0;
+    font-size: 20px;
+}
+.score{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(../images/swords.jpeg) no-repeat center center;
+    background-size: 60%;
+    width: 34%;
+    height: 34%;
+}
+.cards > p{
+    position: absolute;
+    top: 38%;
+    left: 15%;
+    font-size: 30px;
+}
+h1{
+    text-align: center;
+    color: #4990e2 !important;
+}
+/*header*/
+header{
+    top: 0;
+    position: fixed;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 2;
+}
+main{
+    margin-top: 100px;
+}

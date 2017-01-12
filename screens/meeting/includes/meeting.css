@@ -1,52 +1,75 @@
-/* main */
-main > div{
-    padding-top: 64px;
-    max-width: 334px;
-    overflow: hidden;
+main,html,body{
+    width: 100%;
+    height: 100%;
 }
-section{
-    width: 90px;
-    height: 90px;
-    background: url("../../../images/mainAvatar.png") 12px 12px no-repeat;
-    float: left;
-    border: solid 1px black;
-    border-radius: 50%;
+header{
+    background-color: #4990e2;
 }
-#me{
-    margin: 0 30px 0 10px;
-}
-#else{
-    margin-right: 10px;
-}
-#change{
-    width: 70px;
-    height: 70px;
-    background: url("../images/change.png") no-repeat;
-    float: left;
-    margin: 10px 30px 0 0;
-}
-#myMoney{
-    float: left;
-    font-size: 35px;
-    margin-top: 5px;
-}
-span{
-    font-size: 25px;
-}
-#hisMoney{
-    float: right;
-    font-size: 35px;
-    margin-top: 5px;
-}
-#map{
-    width: 250px;
-    height: 169px;
-    margin-top: 80px;
-    background: url("../images/map.png") no-repeat;
-}
+
 p{
-    text-align: center;
+    direction: rtl;
+    font-family: LucidaGrande;
+    font-size: 30px;
+    color: #000000;
 }
-#place{
-    margin: 10px 0 10px 0;
+#heder{
+    float: right;
+    margin-top: 1.1%;
+    margin-right: 3.5%;
+    font-family: LucidaGrande;
+    font-size: 48px;
+    color: #4A4A4A;
 }
+#deals{
+    direction: rtl;
+    float: right;
+    width: 66.3%;
+    height: 35.3%;
+    margin-top: 8%;
+    margin-right:20% ;
+}
+.rowelement{
+    width: 100%;
+    height: 25%;
+    margin-bottom: 2%;
+}
+.item{
+    float: right;
+    height: 100%;
+    width: 9.4%;
+}
+.locaton{
+    float: right;
+    width: 27%;
+     height: 100%;
+}
+.item>p{
+  margin-top: 22%;
+    margin-right: 3%;
+}
+.locaton>p{
+    margin-top: 9%;
+    margin-right: 3%;
+
+}
+
+.avt{
+    margin-top: 0;
+}
+.likes{
+    margin-top: 15%;
+    margin-right: 22%;
+}
+.tok{
+    margin-top: 15%;
+    margin-left: 5%;
+    height: 50%;
+}
+.info{
+    margin-top: 22%;
+    margin-left: 5%;
+}
+
+
+
+
