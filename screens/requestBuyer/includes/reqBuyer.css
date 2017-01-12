@@ -1,0 +1,114 @@
+main,html,body{
+    width: 100%;
+    height: 100%;
+}
+p{
+    direction: rtl;
+    font-family: LucidaGrande;
+    font-size: 30px;
+    color: #000000;
+}
+h1{
+    float: right;
+    margin-top: 1.1%;
+    margin-right: 3.5%;
+    font-family: LucidaGrande;
+    font-size: 48px;
+    color: #4A4A4A;
+}
+#pic{
+    position: relative;
+    float: right;
+    width: 11.8%;
+    height: 16.6%;
+    margin-right: 20.1%;
+    margin-top: 4.7%;
+    background: url("mic.png") no-repeat center center;
+    background-size: 72%;
+
+}
+#token{
+    position: absolute;
+    width: 40.4%;
+    height: 40.3%;
+    bottom: 0;
+    left: 0;
+    background: url("magic-wand copy.png") no-repeat center center;
+    background-size: 60%;
+}
+#row1{
+    position: relative;
+    /*background-color: red;*/
+    width: 41%;height:10% ;
+    float: right;
+    margin-right: 4.2%;
+    margin-top: 8.5%;
+}
+#userSell{
+    float: right;
+    margin-top: 1%;
+}
+#from{
+    float: left;
+    /*font-family: LucidaGrande-Bold;*/
+    font-size: 40px;
+    color: #000000;
+    margin-right: 6%;
+}
+#row2{
+    position: relative;
+    /*background-color: lightblue;*/
+    width: 41%;height:10% ;
+    float: right;
+    margin-right: 36.1%;
+    margin-top: 0%;
+}
+#userBuy{
+    float: right;
+}
+#to{
+    float: left;
+    /*font-family: LucidaGrande-Bold;*/
+    font-size: 40px;
+    color: #000000;
+    margin-right: 6%;
+}
+#infotext{
+    float: right;
+    position: relative;
+    /*background-color: lightgreen;*/
+    width: 41%;height:10% ;
+    margin-right: 24.9%;
+    margin-top: 0%;
+}
+#location{
+    float: right;
+    width: 31.6%;
+    height:26% ;
+    margin-right:24.9% ;
+    margin-top: 0%;
+}
+#map{
+    width: 100%;
+    height:100% ;
+    background-image: url("map.png");
+}
+#messenge{
+    float: left;
+    direction: rtl;
+    margin-left: 22.5%;
+}
+#bt{
+    width: 12%;
+    height:6.6% ;
+    background-image: url("bt.png");
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 2%;
+    margin-bottom: 2.6%;
+
+}
+
+
+
+
