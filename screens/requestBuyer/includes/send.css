@@ -1,0 +1,24 @@
+#ok{
+    width: 275px;
+    height: 275px;
+    margin: 0 auto;
+}
+#container{
+    position: fixed;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+
+}
+#message{
+    position: fixed;
+    margin: 0 auto;
+    width: 100%;
+    bottom: 100px;
+    text-align: center;
+}
+#message>p{
+    font-family: 'Open Sans Hebrew', sans-serif;
+    font-size: 72px;
+    color: #4990E2;
+}

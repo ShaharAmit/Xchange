@@ -37,6 +37,8 @@ $(function(){
         return false;
     });
 
+
+
    /*
     $('.submit_to_a').parent('form').on('submit', function(e) {
 
@@ -66,6 +68,14 @@ $(function(){
         return false;
     });*/
     $("#avatar").click(function () {
-        location.href = "../profile/index.html";
+        location.href = "screens/profile/index.html";
     });
+    $("#listType").click(function () {
+        window.location.href = 'tableView.html';
+    });
+    $("section").click(function () {
+        window.location.href = 'screens/requestBuyer/index.html';
+    });
+
 });
+

@@ -1,0 +1,70 @@
+@import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+#scroll{
+    display: block;
+}
+#scrollBuying{
+    padding-right: 100px;
+}
+#listType{
+    float: left;
+    background: url("../images/grid.png") center center no-repeat;
+
+}
+#title {
+    float: right;
+    margin-top: 1.1%;
+    margin-right: 3.5%;
+    font-family: 'Open Sans Hebrew', sans-serif;
+    font-size: 48px;
+    color: #4A4A4A;
+}
+#table{
+    direction: rtl;
+    float: right;
+    width: 100.3%;
+    height: 100%;
+    margin-top: 8%;
+    margin-right:0%;
+}
+.rowElement{
+    width: 100%;
+    height: 30%;
+    margin-bottom: 5%;
+}
+.item{
+    float: right;
+    height: 100%;
+    width: 20%;
+
+}
+.location{
+    float: right;
+    width: 27%;
+    height: 100%;
+}
+.item>p{
+    margin-top: 22%;
+    margin-right: 3%;
+    font-size: 30px;
+}
+.location>p{
+    margin-top: 9%;
+    margin-right: 3%;
+
+}
+.avt{
+    margin-top: 0;
+}
+.likes{
+    margin-top: 15%;
+    margin-right: 22%;
+}
+.tok{
+    margin-top: 15%;
+    margin-left: 5%;
+    height: 50%;
+}
+.info{
+    margin-top: 22%;
+    margin-left: 5%;
+}

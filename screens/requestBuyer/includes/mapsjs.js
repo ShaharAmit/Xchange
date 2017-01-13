@@ -10,3 +10,10 @@ function initMap() {
         map: map
     });
 }
+
+$(function() {
+    $("#bt").click(function () {
+        window.location.href = 'sendedd.html';
+    });
+});
+

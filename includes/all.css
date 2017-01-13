@@ -1,4 +1,5 @@
 /* all */
+@import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
 html, body {
     height: 100%;
     width: 100%;
@@ -16,42 +17,60 @@ footer, header, article, section, main, nav, aside {
 /* header */
 header{
     height: 100px;
+    background: #ffffff;
+    top:0;
+    position: fixed;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 2;
 }
 #logo{
-    background: /*url("../images/logo.png")*/ black no-repeat;
+    background: url("../images/logo.png")  no-repeat;
     width: 139px;
     height: 68px;
     display: block;
     margin: 16px 0 0 29px;
     float: left;
-    /*16 top
-    left 29*/
 }
 #profile{
-    background: /*url("")*/black no-repeat;
+    background: url("../images/profileAvater.png") no-repeat;
     width: 60px;
     height: 60px;
     margin: 15px 20px 0 0;
-    /*15 px top
-    right 20px*/
     float: right;
     border-radius: 50%;
 }
 nav {
-    /*
-    margin: 0 0 0 139px;
-    */
-    height: 100px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
 }
 nav li{
-    margin: 15px 0 0 6% !important;
+    margin: 15px 0 0 50px !important;
+    display: inline-block;
 }
 nav a {
     font-size: 36px;
 }
+nav> ul{
+   display: inline-block;
+
+}
 main{
     width: 100%;
     height: 100%;
+    margin-top: 100px;
+}
+#title {
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+    font-family: 'Open Sans Hebrew', sans-serif;
+    font-size: 48px;
+    color: #4A4A4A;
+}
+.underline{
+    text-decoration: underline;
 }
 
 

@@ -15,29 +15,36 @@ body{
 }
 #scrollNav > div{
     width: 30px;
-    height: 30px;
+    height: 40px;
     margin-top: 5px;
-    background: black;
+}
+#scrollNav > p{
+    direction: rtl;
+    float: right;
+    margin-left: 30px;
+    font-size: 30px;
 }
 #listType{
     float: left;
+    background: url("../images/list.png") center center no-repeat;
+
 }
 #filCash{
     float: right;
     margin-right: 30px;
+    background: url("../images/money-2.png") center center no-repeat;
+
 }
 #filLocation{
     float: right;
     margin-right: 30px;
+    background: url("../images/maps-and-flags.png") center center no-repeat;
+
 }
 #filScore{
     float: right;
-}
-h1{
-    text-align: right;
-    width: 250px;
-    padding-right: 60px;
-    float: right;
+    background: url("../images/crownitem.png")  center no-repeat;
+
 }
 #scrollBuying{
     width: 600px;
@@ -46,7 +53,7 @@ h1{
     padding-bottom: 15px;
 }
 section{
-    background: url("../../../images/mainAvatar.png") center center no-repeat;
+    background: url("../images/mic.png") center center no-repeat;
     background-size: 90%;
     width: 18%;
     height: 36%;
