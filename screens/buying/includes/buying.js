@@ -9,18 +9,17 @@ $(function(){
         arrowDown=$("#arrowDown"),
         scroll=0,
         button=$("#button");
+    $("li:last").addClass("underLine");
     for(i=0;i<24;i++){
         InSection();
     }
 
-    console.log(button);
     function InSection(){
         obj.before("<section></section>");
         avatarsNum++;
     }
 
     button.click(function(e) {
-        console.log("f");
 /*        e.preventDefault();
         $.ajax({
             type: 'post',
@@ -68,13 +67,13 @@ $(function(){
         return false;
     });*/
     $("#avatar").click(function () {
-        location.href = "screens/profile/index.html";
+        location.href = "../../profile/index.html";
     });
     $("#listType").click(function () {
-        window.location.href = 'tableView.html';
+        window.location.href = '../tableView.html';
     });
     $("section").click(function () {
-        window.location.href = 'screens/requestBuyer/index.html';
+        window.location.href = '../../requestBuyer/index.html';
     });
 
 });
