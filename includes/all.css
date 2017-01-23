@@ -86,8 +86,8 @@ nav div{
     width: 1.2vw;
     height: 1.2vw;
     position: absolute;
-    left: 2%;
-    bottom: 20%;
+    left: 0.1%;
+    bottom: 15%;
     border-radius: 50%;
 }
 nav div p{
@@ -98,13 +98,20 @@ nav div p{
     font-weight: bold;
 }
 
+@media screen and (max-width: 1440px){
+    nav div{
+        left: 2%;
+        bottom: 20%;
+    }
+}
+
 @media screen and (max-width: 1050px) {
     nav ul:nth-of-type(2){
         width: 36.5%
     }
     nav div{
-        left: 4%;
-        bottom: 25%;
+        left: 6%;
+        bottom: 26%;
     }
 }
 
