@@ -16,7 +16,7 @@ footer, header, article, section, main, nav, aside {
 }
 /* header */
 header{
-    height: 100px;
+    height: 8vw;
     background: #ffffff;
     top:0;
     position: fixed;
@@ -60,7 +60,7 @@ nav a {
     background: url("../images/logo.png")  no-repeat;
     background-size: 100%;
     width: 9.65%;
-    height: 68px;
+    height: 5vw;
     display: block;
     margin:15px 0 0 0;
     float: left;
@@ -68,7 +68,7 @@ nav a {
 main{
     width: 100%;
     height: 100%;
-    margin-top: 100px;
+    margin-top: 8vw;
 }
 #title {
     float: right;
