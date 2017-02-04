@@ -2,7 +2,10 @@ $(function() {
     var obj=$(".clear").last(),
         cont=$(".cont").last(),
         cards=0,
-        i;
+        i,
+        fName,
+        lName,
+        id;
     $("a[href='../profile/index.html']").attr("href","./screens/profile/index.html");
     $("a[href='../meeting/index.html']").attr("href","./screens/meeting/index.html");
     $("a[href='../messages/index.html']").attr("href","./screens/messages/index.html");
@@ -45,4 +48,15 @@ $(function() {
                     "</section>");
         cards++;
     }
+    $.ajax({
+        type: "POST",
+        url: "includes/action.php?action=data",
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            $.each(data, function(index, element) {
+                console.log(element.ID);
+            });
+        }
+    });
 });

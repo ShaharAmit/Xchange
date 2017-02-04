@@ -72,10 +72,10 @@ main{
 }
 #title {
     float: right;
-    margin-top: 10px;
-    margin-right: 20px;
+    margin-top: 0.1vw;
+    margin-right: 10vw;
     font-family: 'Open Sans Hebrew', sans-serif;
-    font-size: 48px;
+    font-size: 3vw;
     color: #4A4A4A;
 }
 .underLine{

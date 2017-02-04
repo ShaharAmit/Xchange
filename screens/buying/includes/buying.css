@@ -4,51 +4,46 @@ body{
 }
 #scroll{
     display: none;
-    width: 550px;
-    height: 269px;
+    width: 40vw;
+    height: 21.5vw;
     overflow: hidden;
-    padding-left: 2.5%;
+    padding-left: 2vw;
 }
 #scrollNav{
-    height: 40px;
-    width: 550px;
-}
-#scrollNav > div{
-    width: 30px;
-    height: 40px;
-    margin-top: 5px;
+    height: 2.2vw;
+    width: 28vw;
 }
 #scrollNav > p{
     direction: rtl;
     float: right;
-    margin-left: 30px;
-    font-size: 30px;
+    font-size: 1.8vw;
+}
+#scrollNav > div {
+    float: right;
+    margin: 0.4vw 1vw 0 0;
+    width: 1.5vw;
+    height: 2vw;
+    background-size: 100%;
 }
 #listType{
-    float: left;
+    float: left !important;
     background: url("../../../images/list.png") center center no-repeat;
 
 }
 #filCash{
-    float: right;
-    margin-right: 30px;
     background: url("../../../images/money-2.png") center center no-repeat;
 
 }
 #filLocation{
-    float: right;
-    margin-right: 30px;
     background: url("../../../images/maps-and-flags.png") center center no-repeat;
-
 }
 #filScore{
-    float: right;
-    background: url("../../../images/crownitem.png")  center no-repeat;
-
+    width: 2vw !important;
+    background: url("../../../images/crownitem.png")  center center no-repeat;
 }
 #scrollBuying{
-    width: 600px;
-    height: 300px;
+    width: 44vw;
+    height: 24vw;
     overflow: scroll;
     padding-bottom: 15px;
 }
@@ -105,7 +100,7 @@ form > p:nth-of-type(3){
 #buy{
     position: relative;
     text-align: center;
-    font-size: 15px;
+    font-size: 1.5vw;
     width: 100%;
 }
 #coin{
@@ -144,11 +139,11 @@ form > p:nth-of-type(4){
 #ilsAmount{
     position: relative;
     float: right;
-    font-size: 50px;
+    font-size: 3vw;
     margin-top: 10px;
 }
 #ilsAmount > span{
-    font-size: 30px;
+    font-size: 1.5vw;
 }
 form > p > span:nth-of-type(1){
     position: absolute;
