@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if($_GET["action"] == "data") {
         include('db.php');
         $query = "SELECT * FROM tbl_users_234 WHERE I < 6";

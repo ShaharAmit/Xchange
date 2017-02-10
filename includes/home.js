@@ -5,7 +5,12 @@ $(function() {
         i,
         fName,
         lName,
-        id;
+        id,
+        deals,
+        likes,
+        disLikes,
+        pictureURL,
+        rankURL;
     $("a[href='../profile/index.html']").attr("href","./screens/profile/index.html");
     $("a[href='../meeting/index.html']").attr("href","./screens/meeting/index.html");
     $("a[href='../messages/index.html']").attr("href","./screens/messages/index.html");
@@ -18,7 +23,7 @@ $(function() {
                 "<div class='bottomLine'></div>" +
                 "<div class='clear'></div>"
     );
-    for(i=0;i<24;i++){
+    /*for(i=0;i<24;i++){
         InSection();
     }
     function InSection(){
@@ -47,15 +52,58 @@ $(function() {
                         "</section>" +
                     "</section>");
         cards++;
+    }*/
+    function AddRight(index) {
+        obj.before("<section class='cardsRight'>" +
+                        "<p>"+fName+" "+lName+ " - "+deals+" עסקאות"+"</p>" +
+                        "<section class='avatars'>" +
+                            "<section class='score'></section>" +
+                        "</section>" +
+                        "<section class='likes'>" +
+                            "<section class='like'></section>" +
+                            "<p>"+likes+"</p>" +
+                            "<section class='disLike'></section>" +
+                            "<p>"+disLikes+"</p>" +
+                        "</section>" +
+                    "</section>");
+        $(".score").eq(index).css('background-image', 'url(' + rankURL + ')');
+        $(".avatars").eq(index).css('background-image', 'url(' + pictureURL + ')');
+        cards++;
+    }
+    function AddLeft(index) {
+        obj.before("<section class='cardsLeft'>" +
+                        "<p>"+fName+" "+lName+ " - "+deals+" עסקאות"+"</p>" +
+                        "<section class='avatars'>" +
+                            "<section class='score'></section>" +
+                        "</section>" +
+                        "<section class='likes'>" +
+                            "<section class='like'></section>" +
+                            "<p>"+likes+"</p>" +
+                            "<section class='disLike'></section>" +
+                            "<p>"+disLikes+"</p>" +
+                        "</section>" +
+                    "</section>");
+        $(".score").eq(index).css('background-image', 'url(' + rankURL + ')');
+        $(".avatars").eq(index).css('background-image', 'url(' + pictureURL + ')');
+        cards++;
     }
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "includes/action.php?action=data",
         dataType: 'json',
         success: function (data) {
-            console.log(data);
             $.each(data, function(index, element) {
-                console.log(element.ID);
+                fName = element.FIRST_NAME;
+                lName = element.LAST_NAME;
+                deals = element.DEALS_AMOUNT;
+                likes = element.LIKES;
+                disLikes = element.DISLIKES;
+                pictureURL = element.PICTURE;
+                rankURL = element.RANK;
+                if(index%2 == 0)
+                    AddRight(index);
+                else
+                    AddLeft(index);
             });
         }
     });
