@@ -11,7 +11,7 @@
     });
 }*/
 $(function(){
-    navigator.geolocation.getCurrentPosition(function(position) {
+    /*navigator.geolocation.getCurrentPosition(function(position) {*/
         var nLatitude = 32.090;
         var nLongitude = 34.803;
         var latlng = new google.maps.LatLng(nLatitude, nLongitude);//user position
@@ -26,6 +26,5 @@ $(function(){
             map: map,
             title: "you are here!!"
         });
-    });
 });
 
