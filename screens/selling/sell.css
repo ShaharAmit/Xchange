@@ -1,0 +1,72 @@
+
+main{
+    width: 690px;
+
+}
+#title{
+    width:100%;
+    text-align: right;
+    color: #4990E2;
+    font-size: 48px;
+    margin-top: 0;
+    font-family: Helvetica;
+}
+#map{
+    margin-top: 80px;
+    width: 690px;
+    height: 376px;
+}
+#form{
+    height: 113px;
+}
+#inpamunt{
+    float: right;
+    text-align: right;
+    width: 88px;
+}
+#seletCurr{
+    float: left;
+    width: 300px;
+    text-align: right;
+}
+#inpDate{
+    margin-top: 43px;
+    float: left;
+    text-align: right;
+    width: 173px;
+}
+#inpTime{
+    margin-top: 43px;
+    float: right;
+    text-align: right;
+    width: 173px;
+}
+#buttonArea{
+    margin-top: 41px;
+    text-align: center;
+}
+#publish{
+    width: 159px;
+    height: 68px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-image: url("btPublish.png");
+    cursor:pointer
+
+}
+#searchInput {
+    margin-top: 10px;
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 10px 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 50%;
+    text-align: right;
+}
+#searchInput:focus {
+    border-color: #4d90fe;
+}
+
+

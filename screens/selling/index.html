@@ -2,7 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Xchange - sell</title>
+    <link rel="stylesheet" href="../../includes/all.css">
+    <link rel="stylesheet" href="sell.css">
+    <script src="../../includes/jquery-3.1.1.min.js"></script>
+    <script src="sell.js" async></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<body></body>
+<body>
+
+<h1 id="title">קניית מט&#8221;ח</h1>
+<main>
+    <section id="form">
+        <form id="sellForm">
+            <input id="inpamunt" type="number" placeholder="סכום" required>
+            <select id="seletCurr">
+                <option value="---">בחר מטבע</option>
+                <option value="USD">USD</option>
+                <option value="ERU">ERU</option>
+                <option value="HKD">HKD</option>
+                <option value="LSR">LSR</option>
+            </select>
+            <div class="clear"></div>
+            <input id="inpTime" type="time" placeholder="בחר שעה" required>
+            <input id="inpDate" type="date" placeholder="בחר תאריך" required>
+        </form>
+    </section>
+    <input id="searchInput" class="controls" type="text" placeholder="חפש כתובת">
+    <section id="map">
+    </section>
+    <section id="buttonArea">
+        <div id="publish" onclick="submiting()"></div>
+    </section>
+    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByCIqDoXlzUHYplOTuvD8H2lrBOEuaBc8"></script>-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByCIqDoXlzUHYplOTuvD8H2lrBOEuaBc8&libraries=places&callback=initMap" async defer></script>
+</main>
+<div class="clear"></div>
+<script src="includes/buying.js"></script>
+<script src="../../includes/all.js"></script>
+
+</body>
+
 </html>
