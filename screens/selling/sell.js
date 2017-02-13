@@ -55,13 +55,6 @@ function initMap() {
             map.setCenter(place.geometry.location);
             map.setZoom(15);
         }
-        marker.setIcon(({
-            // url: place.icon,
-            // size: new google.maps.Size(71, 71),
-            // origin: new google.maps.Point(0, 0),
-            // anchor: new google.maps.Point(15, 34),
-            // scaledSize: new google.maps.Size(35, 35)
-        }));
         marker.setPosition(place.geometry.location);
         marker.setVisible(true);
 
@@ -92,8 +85,6 @@ function initMap() {
     });
 
 }
-
 function submiting() {
      document.getElementById("sellForm").submit();
-
 }
