@@ -8,7 +8,9 @@ $(function(){
         arrowUp=$("#arrowUp"),
         arrowDown=$("#arrowDown"),
         scroll=0,
-        button=$("#button");
+        button=$("#button"),
+        firDate = $("#firstDate"),
+        secDate = $("#secondDate");
     $("li:last").addClass("underLine");
     for(i=0;i<24;i++){
         InSection();
@@ -20,52 +22,37 @@ $(function(){
     }
 
     button.click(function(e) {
-/*        e.preventDefault();
-        $.ajax({
-            type: 'post',
-            url: '../../includes/all.php',
-            data: $(this).serialize(),
-            success: function() {
-                var MyJSStringVar = <?php echo $fruits_list ?>;
-                console.log(MyJSStringVar);
-            }
-        });*/
+/*
+        e.preventDefault();
+*/
+/*        $("#amount").required = true;
+        console.log("here");*/
         people.slideDown();
         arrowDown.slideDown();
         arrowUp.slideDown();
         return false;
     });
+    firDate.datepicker({minDate: 0, onSelect: function () {
+        secDate.datepicker({minDate: firDate.val(), setDate: firDate.val});
+    }});
+    firDate.datepicker().datepicker("setDate", new Date());
+    secDate.datepicker({minDate: 0});
+    secDate.datepicker().datepicker("setDate", new Date());
+
+    
+        
+    
 
 
 
-   /*
-    $('.submit_to_a').parent('form').on('submit', function(e) {
 
-    e.preventDefault();
 
-    $.ajax({
-    type: 'post',
-    url: 'a.php',
-    data: $(this).serialize(),
-    success: function() {}
-    });
+   /* $("#form").submit(function(e) {
+        e.preventDefault();
 
-    });
-   */
-/*    arrowUp.click(function() {
-        if(scroll<scrollTop-224){
-            scroll+=112;
-            people.animate({scrollTop: scroll},500);
-        }
-        return false;
-    });
-    arrowDown.click(function() {
-        if(scroll>0){
-            scroll-=112;
-            people.animate({scrollTop: scroll},500);
-        }
-        return false;
+
     });*/
+
     $("#avatar").click(function () {
         location.href = "../../profile/index.html";
     });
