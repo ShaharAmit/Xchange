@@ -1,20 +1,19 @@
 
 main{
-    width: 690px;
-
+    width: 40vw;
 }
 #title{
     width:100%;
     text-align: right;
     color: #4990E2;
-    font-size: 48px;
+    font-size: 3.2vw;
     margin-top: 0;
     font-family: Helvetica;
 }
 #map{
-    margin-top: 80px;
-    width: 690px;
-    height: 376px;
+    margin-top: 50px;
+    width: 40vw;
+    height: 22vw;
 }
 #form{
     height: 113px;
@@ -22,36 +21,39 @@ main{
 #inpamunt{
     float: right;
     text-align: right;
-    width: 88px;
+    width: 6vw;
 }
 #seletCurr{
     float: left;
-    width: 300px;
+    width: 20vw;
     text-align: right;
 }
 #inpDate{
-    margin-top: 43px;
+    margin-top: 20px;
     float: left;
     text-align: right;
-    width: 173px;
+    width: 14vw;
 }
 #inpTime{
-    margin-top: 43px;
+    margin-top: 20px;
     float: right;
     text-align: right;
-    width: 173px;
+    width: 14vw;
 }
 #buttonArea{
-    margin-top: 41px;
+    margin-top: 20px;
+    text-align: center;
     text-align: center;
 }
 #publish{
-    width: 159px;
-    height: 68px;
-    margin: 0 auto;
+    width: 6vw;
+    height: 3vw;
     border-radius: 10px;
-    background-image: url("btPublish.png");
-    cursor:pointer
+    background:url("btPublish.png") no-repeat;
+    background-size: 6vw 3vw;
+    cursor:pointer;
+    margin: 0 auto;
+    text-align: center;
 }
 #searchInput {
     margin-top: 10px;
@@ -59,7 +61,7 @@ main{
     font-family: Roboto;
     font-size: 15px;
     font-weight: 300;
-    padding: 10px 11px 0 13px;
+    padding: 0px 11px 0 13px;
     text-overflow: ellipsis;
     width: 50%;
     text-align: right;
@@ -67,5 +69,52 @@ main{
 #searchInput:focus {
     border-color: #4d90fe;
 }
-
+#coverBlack{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    top:0;
+    bottom: 0;
+    z-index: 2;
+    opacity: 0.8;
+}
+#userMessege{
+    position: absolute;
+    width: 45vw;
+    height: 23vw;
+    background-color: #ffffff;
+    z-index: 3;
+    border-radius: 10px;
+    top:50%;
+    left: 50%;
+    margin-top: -10vw;
+    margin-left: -22.5vw;
+    background-image: url("sellSend.png");
+    background-repeat: no-repeat;
+    background-size:16vw 12vw;
+    background-position: center;
+    background-position-y: 30px;
+    font-size: 3vw;
+    font-family: Helvetica;
+    text-align: center;
+}
+#userMessege > p{
+    width: 40vw;
+    color: #4d90fe;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -20vw;
+}
+#exit{
+    position: absolute;
+    top:0.2vw;
+    right:0vw;
+    width: 2.2vw;
+    height: 2.2vw;
+    background: url("exit.png") no-repeat;
+    background-size:2.2vw 2.2vw;
+    cursor:pointer
+}
 

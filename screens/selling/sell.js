@@ -86,5 +86,13 @@ function initMap() {
 
 }
 function submiting() {
-     document.getElementById("sellForm").submit();
+    $("body").append("<div id='coverBlack'></div>");
+    $("body").append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p> <div id='exit'></div></div>");
+    $("#exit").click(function () {
+        location.reload();
+    });
+    $("#coverBlack").click(function () {
+        location.reload();
+    });
 }
+
