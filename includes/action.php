@@ -17,6 +17,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     } elseif ($_GET["action"] == "count"){
         $query = "SELECT COUNT(*) FROM tbl_users_234";
         $result = mysqli_query($connection,$query);
+    } elseif ($_GET["action"] == "people") {
+        $img = $_GET["img"];
+        $imgEnd = $img +19;
+
+        $stmt = $connection->prepare("SELECT * FROM tbl_details_234 WHERE I BETWEEN ? AND ?");
+        $stmt->bind_param('ii', $img, $imgEnd);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
     }
 
     if ($result->num_rows > 0) {

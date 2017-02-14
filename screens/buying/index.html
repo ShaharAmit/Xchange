@@ -24,8 +24,8 @@
             <h1 id="title">קניית מט&#8221;ח</h1>
             <div class="clear"></div>
                 <form>
-                    <p><input type="text" id="firstDate" title="תאריך התחלה" required><span>*</span></p>
-                    <p><input type="text" id="secondDate" title="תאריך סיום" required><span>*</span></p>
+                    <p><input type="text" id="firstDate" title="תאריך התחלה"><span>*</span></p>
+                    <p><input type="text" id="secondDate" title="תאריך סיום"><span>*</span></p>
                     <label id="buy">:רוצה לקנות מט"ח</label>
                     <p><select name="from" id="coin" title="בחר מטבע להחלפה">
                         <option value="USD">USD</option>
@@ -37,9 +37,11 @@
                         <option value="HKD">HKD</option>
                         <option value="CNY">CNY</option>
                     </select></p>
-                    <p><input name="amount" type="number" id="amount" title="בחר סכום" placeholder="בחר סכום" required><span>*</span></p>
+                    <p><input name="amount" type="number" id="amount" title="בחר סכום" placeholder="בחר סכום"><span>*</span></p>
+                    <div class="clear"></div>
                     <label id="ilsAmount"><span>&#x20aa;</span>&nbsp;0.00</label>
                     <p><input id="button" type="submit" value=""></p>
+                    <span class="error">אנא מלא את כל הפרטים!</span>
                 </form>
                 <div id="scrollNav">
                     <p>מיין לפי:</p>
