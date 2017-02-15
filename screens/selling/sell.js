@@ -1,25 +1,23 @@
 /**
  * Created by danielluzgarten on 10/02/2017.
  */
-// $(function(){
-//     /*navigator.geolocation.getCurrentPosition(function(position) {*/
-//     var nLatitude = 32.090;
-//     var nLongitude = 34.803;
-//     var latlng = new google.maps.LatLng(nLatitude, nLongitude);//user position
-//     var map_opts = {
-//         zoom: 15,
-//         center: latlng,
-//         mapTypeId: google.maps.MapTypeId.ROADMAP //HYBRID,ROADMAP,TERRAIN,SATELLITE
-//
-//     };
-//     map=new google.maps.Map(document.getElementById("map"),map_opts);
-//     var markerIt = new google.maps.Marker({
-//         position: latlng,
-//         map: map,
-//         title: "you are here!!"
-//     });
-// });
 
+$("document").ready(function () {
+    $("#inpDate").datepicker({minDate: 0});
+    $("#inpDate").datepicker().datepicker("setDate", new Date());
+    $("#inpTime").timepicker({
+        timeFormat: 'h:mm p',
+        interval: 60,
+        minTime: '7',
+        maxTime: '22:00pm',
+        defaultTime: '22',
+        startTime: '07:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+    });
+
+});
 function initMap() {
     var nLatitude = 32.090;
     var nLongitude = 34.803;
@@ -86,8 +84,20 @@ function initMap() {
 
 }
 function submiting() {
+    var amaunt = $("#inpamunt"),
+        currency =$("#seletCurr"),
+        time = $("#inpTime"),
+        date = $("#inpDate");
+    if (isNaN(amaunt.value) ){
+    }
+    if(amaunt > 0 ){
+        alert("number");
+    }
     $("body").append("<div id='coverBlack'></div>");
-    $("body").append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p> <div id='exit'></div></div>");
+    $("body").append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
+    $ ("#sellForm").submit(function (e) {
+        e.preventDefault();
+    });
     $("#exit").click(function () {
         location.reload();
     });
