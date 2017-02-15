@@ -10,41 +10,46 @@ $(function(){
         amount = $("#amount"),
         error = $(".error"),
         pictureURL,
-        savedAmount,
-        savedFirDate,
-        savedSecDate,
         savedCoin,
         ILSAmount = $("#ilsAmount");
-    $("li:last").addClass("underLine");
+    $("li").last().addClass("underLine");
     function InSection(){
         obj.before("<section></section>");
         $("section").eq(avatarsNum).css('background-image', 'url(' + pictureURL + ')');
         avatarsNum++;
     }
     function loadPeople() {
-        obj.before("<i class='fa fa-refresh fa-spin' style='font-size:60px; position: fixed; left: 50%; top: 70%'></i>");
-        $.ajax({
-            type: "GET",
-            url: "../../includes/action.php?",
-            data:{
-                action: "people",
-                img: avatarsNum+1
-            },
-            dataType: 'json',
-            success: function (data) {
-                $.each(data, function(index, element) {
-                    pictureURL = element.IMG;
-                    InSection();
-                });
-                $(".fa").remove();
-            }
-        });
+        try {
+            $('.fa').remove();
+            form.before("<i class='fa fa-refresh fa-spin' style='font-size:60px; position: fixed; left: 50%; top: 80%;z-index: 5;'></i>");
+            var xhr = $.ajax({
+                type: "GET",
+                url: "../../includes/action.php?",
+                data: {
+                    action: "people",
+                    img: avatarsNum + 1
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $.each(data, function (index, element) {
+                        pictureURL = element.IMG;
+                        InSection();
+                    });
+                    $(".fa").remove();
+                }
+            });
+            setTimeout(function () {
+                xhr.abort();
+            },10000);
+        } catch (err){
+            alert("something went wrong"+err);
+        }
     }
     function changeToILS(foreign,type){
         try{
             $.getJSON("http://api.fixer.io/latest?base="+type,function (data) {
                 $.each(data, function(index, element) {
-                    ILSAmount.html(element.ILS * foreign);
+                    ILSAmount.html(Math.round((element.ILS * foreign) * 100 )/100);
                 });
             });
         } catch(err) {
@@ -58,18 +63,23 @@ $(function(){
                 error.css("display","inline");
         else {
             error.css("display","none");
-            people.fadeIn();
             loadPeople();
+            people.fadeIn();
             savedCoin = $("#coin").val();
             changeToILS(amount.val(),savedCoin);
         }
     });
-    firDate.datepicker({minDate: 0, onSelect: function () {
-        secDate.datepicker({minDate: firDate.val(), setDate: firDate.val});
-    }});
+    firDate.datepicker({minDate: 0});
     firDate.datepicker().datepicker("setDate", new Date());
     secDate.datepicker({minDate: 0});
     secDate.datepicker().datepicker("setDate", new Date());
+    firDate.datepicker().change(function () {
+        secDate.datepicker("setDate",firDate.datepicker().val());
+    });
+    secDate.datepicker().change(function () {
+        if(firDate.datepicker().val()>secDate.datepicker().val())
+            firDate.datepicker("setDate",secDate.datepicker().val());
+    });
 
     $("#avatar").click(function () {
         location.href = "../../profile/index.html";

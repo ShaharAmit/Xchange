@@ -16,5 +16,8 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="6102647" level="application" />
+    <orderEntry type="library" name="jquery-1.10.2" level="application" />
+    <orderEntry type="library" name="jquery-1.12.4" level="application" />
   </component>
 </module>

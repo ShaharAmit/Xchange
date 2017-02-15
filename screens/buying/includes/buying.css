@@ -76,20 +76,22 @@ form > p:nth-of-type(2){
 #secondDate{
     position: relative;
     float: left;
-    text-align: right;
     width: 100%;
     height: 100%;
     cursor: pointer;
-    color: #d9d9d9;
+    color: #000;
+    text-align: center;
 }
 #firstDate{
     position: relative;
     float: right;
-    text-align: right;
+    text-align: center;
     width: 100%;
     height: 100%;
     cursor: pointer;
-    color: #d9d9d9;
+    color: #000;
+    padding-right: 10px;
+
 }
 form > p:nth-of-type(3){
     position: relative;
@@ -106,7 +108,7 @@ form > p:nth-of-type(3){
 #coin{
     position: relative;
     width: 100%;
-    text-align: right;
+    text-align: center;
     height: 100%;
     float: left;
     cursor: pointer;
@@ -120,10 +122,11 @@ form > p:nth-of-type(4){
 #amount{
     position: relative;
     float: right;
-    text-align: right;
+    text-align: center;
     width: 100%;
     height: 100%;
     cursor: pointer;
+    color: #000;
 }
 #button{
     position: absolute;

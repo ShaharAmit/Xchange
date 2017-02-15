@@ -16,25 +16,29 @@ footer, header, article, section, main, nav, aside {
 }
 /* header */
 header{
-    height: 8vw;
+    height: 100px;
     background: #ffffff;
     top:0;
     position: fixed;
     width: 100%;
     z-index: 2;
 }
+header > div{
+    margin: 0 auto;
+}
 #profile{
     background: url("../images/profileAvater.png") no-repeat;
     background-size: 100%;
-    width: 4.7vw;
-    height: 4.7vw;
-    margin: 15px 0 0 15px;
+    width: 45px;
+    height: 45px;
+    margin: 7px 0 0 7px;
     float: left;
     border-radius: 50%;
 }
 nav {
     height: 100%;
     width: 100%;
+    text-align: center;
 }
 nav> ul{
     display: inline-block;
@@ -42,33 +46,29 @@ nav> ul{
 }
 nav > ul:nth-of-type(1){
     float: left;
-    margin-left: 3.2%;
 }
 nav > ul:nth-of-type(2){
     float: right;
-    margin-right: 6%;
+    width: 40%;
 }
 nav li{
-    margin: 15px  0 0 3.2%;
     display: inline-block;
     position: relative;
 }
 nav a {
-    font-size: 2.5vw;
+    font-size: 23px;
 }
 #logo{
     background: url("../images/logo.png")  no-repeat;
     background-size: 100%;
-    width: 9.65%;
-    height: 5vw;
-    display: block;
-    margin:15px 0 0 0;
-    float: left;
+    width: 100px;
+    height: 60px;
+    display: inline-block;
+    margin-top: 2px;
 }
 main{
     width: 100%;
     height: 100%;
-    margin-top: 8vw;
 }
 #title {
     float: right;
@@ -105,10 +105,7 @@ nav div p{
     }
 }
 
-@media screen and (max-width: 1050px) {
-    nav ul:nth-of-type(2){
-        width: 36.5%
-    }
+@media screen and (max-width: 950px) {
     nav div{
         left: 6%;
         bottom: 26%;

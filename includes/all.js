@@ -1,6 +1,5 @@
 $(function(){
     var $header = $("body");
-
     $header.prepend(
         "<header>" +
             "<div><a id='profile' href='../profile/index.html'></a></div>" +
@@ -21,4 +20,18 @@ $(function(){
             "</nav>" +
         "</header>"
     );
+    var $li = $("li");
+    $li.eq(0).css({"float":"left","margin-left":"10vw"});
+    $li.eq(1).css({"float":"right"});
+    $li.eq(3).css({"float":"right","margin-right":"10vw"});
+    var checkWidth = (function(){
+        if ($(window).width() < 1000) {
+            $li.eq(0).css({"float":"left","margin-left":"2vw"});
+            $li.eq(3).css({"float":"right","margin-right":"2vw"});
+        }else if($(window).width() > 1000){
+            $li.eq(0).css({"float":"left","margin-left":"10vw"});
+            $li.eq(3).css({"float":"right","margin-right":"10vw"});
+        }
+    });
+    $(window).resize(checkWidth);
 });
