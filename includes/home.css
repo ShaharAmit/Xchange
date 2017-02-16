@@ -85,13 +85,11 @@
     left: 15%;
     font-size: 1.5vw;
 }
-h1{
+main h1{
+    color: #337ab7 !important;
+    font-size: 4vw !important;
     text-align: center;
-    color: #4990e2 !important;
-    font-size: 6vw !important;
-}
-main{
-    margin-top: 100px;
+    width: 100%;
 }
 .cont{
     width: 66.66%;
