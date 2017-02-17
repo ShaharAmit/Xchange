@@ -9,7 +9,9 @@ $(function() {
         disLikes,
         pictureURL,
         rankURL,
-        rowsNum;
+        rowsNum,
+        rank,
+        userId;
     $("a[href='../profile/index.html']").attr("href","./screens/profile/index.html");
     $("a[href='../meeting/index.html']").attr("href","./screens/meeting/index.html");
     $("a[href='../messages/index.html']").attr("href","./screens/messages/index.html");
@@ -82,13 +84,15 @@ $(function() {
             dataType: 'json',
             success: function (data) {
                 $.each(data, function(index, element) {
-                    fName = element.FIRST_NAME;
-                    lName = element.LAST_NAME;
-                    deals = element.DEALS_AMOUNT;
-                    likes = element.LIKES;
-                    disLikes = element.DISLIKES;
-                    pictureURL = element.PICTURE;
-                    rankURL = element.RANK;
+                    fName = element.user_name;
+                    lName = element.user_last_name;
+                    deals = element.user_deals;
+                    likes = element.user_tumb_u;
+                    disLikes = element.user_tumb_d;
+                    userId = element.user_id;
+                    pictureURL = "images/users/"+userId+".png";
+                    rank = element.user_rank;
+                    rankURL ="images/ranks/rank"+rank+".png";
                     if(index%2 == 0)
                         AddRight();
                     else

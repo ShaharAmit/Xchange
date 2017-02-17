@@ -6,7 +6,10 @@ var lng="";
 var addressName="";
 
 $("document").ready(function () {
-    $("#inpDate").datepicker({minDate: 0});
+    $("#inpDate").datepicker({
+        minDate: 0,
+        dateFormat: "yy-mm-dd"
+    });
     $("#inpDate").datepicker().datepicker("setDate", new Date());
     $("#inpTime").timepicker({
         timeFormat: 'h:mm p',
@@ -96,6 +99,7 @@ function submiting() {
         currency =$("#seletCurr").eq(0).val(),
         time = $("#inpTime").eq(0).val(),
         date = $("#inpDate").eq(0).val();
+        alert(date);
     if(amount > 0 && currency != "---" && addressName != ""){
        //save to db
         $.ajax({

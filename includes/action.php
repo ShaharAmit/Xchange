@@ -6,13 +6,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $cards = $_GET["cards"];
         $cardsEnd = $cards +1;
-
-        $stmt = $connection->prepare("SELECT * FROM tbl_users_234 WHERE I BETWEEN ? AND ?");
-        $stmt->bind_param('ii', $cards, $cardsEnd);
+        $temp = "0";
+        $stmt = $connection->prepare("SELECT * FROM tbl_234_xchange_users WHERE user_deals>?");
+        $stmt->bind_param('i',$temp);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
-
 
     } elseif ($_GET["action"] == "count"){
         $query = "SELECT COUNT(*) FROM tbl_users_234";
@@ -38,12 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $lng = $_GET["lng"];
         $sellerId = $_GET["sellerId"];
 
-        $stmt = $conn->prepare("INSERT INTO tbl_234_xchange_deals (deals_seller_id,deals_amount,deals_currency,deals_date,deals_time,deals_location,deals_lat,deals_lng)
-                                VALUES (?,?,?,?,?,?,?,?)");
+        $stmt = $connection->prepare("INSERT INTO tbl_234_xchange_deals (deals_seller_id,deals_amount,deals_currency,deals_date,deals_time,deals_location,deals_lat,deals_lng)
+                                     VALUES (?,?,?,?,?,?,?,?)");
         $stmt->bind_param("sissssss", $sellerId, $amount, $currency,$date,$time,$address,$lat,$lng);
-
-            $stmt->execute();
-            echo "ok";
+        $stmt->execute();
+        echo "ok";
         }catch (Exception $e){
             echo $e->getMessage();
         }
