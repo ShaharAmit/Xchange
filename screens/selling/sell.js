@@ -84,25 +84,28 @@ function initMap() {
 
 }
 function submiting() {
-    var amaunt = $("#inpamunt"),
+    var amaunt = $("#inpamunt").first(),
         currency =$("#seletCurr"),
         time = $("#inpTime"),
         date = $("#inpDate");
-    if (isNaN(amaunt.value) ){
+    //sand items
+    if(amaunt.eq(0).val() > 0 && currency.eq(0).val()!= "---"){
+        $("body").append("<div id='coverBlack'></div>");
+        $("body").append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
+        $ ("#sellForm").submit(function (e) {
+            e.preventDefault();
+        });
+        $("#exit").click(function () {
+            location.reload();
+        });
+        $("#coverBlack").click(function () {
+            location.reload();
+        });
+        //send parms to server with loaction
     }
-    if(amaunt > 0 ){
-        alert("number");
+    else {
+        $("#aform").append("<p class='erorMes'>יש להזין סכום גדול מ1 וגם לבחור מטבע להחלפה</p>")
     }
-    $("body").append("<div id='coverBlack'></div>");
-    $("body").append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
-    $ ("#sellForm").submit(function (e) {
-        e.preventDefault();
-    });
-    $("#exit").click(function () {
-        location.reload();
-    });
-    $("#coverBlack").click(function () {
-        location.reload();
-    });
+
 }
 

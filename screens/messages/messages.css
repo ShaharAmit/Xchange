@@ -1,0 +1,44 @@
+main{
+    width: 50vw;
+    background: lightgray;
+}
+.row{
+    margin: 0 auto !important;
+    background-color: darkgray;
+    height: 8vw;
+    width: 100%;
+}
+.cell{
+    float: right;
+    padding-left: 10px;
+    background: greenyellow;
+    height: 100%;
+    width: 9vw;
+}
+.cell{
+    text-align: center;
+    margin-left: 1px;
+    float: right;
+    background: greenyellow;
+    height: 100%;
+}
+#userpic{
+    background: url("../../img/roismall.png") no-repeat;
+    background-position: center;
+}
+#userName{
+    width: 6vw;
+}
+#userName>P{
+    padding-top: 3vw;
+}
+#userToken{
+    width: 5vw;
+    background: url("../../img/crownitem.png") no-repeat;
+    background-position: center;
+
+}
+#mtext{
+    width: 15vw;
+}
+

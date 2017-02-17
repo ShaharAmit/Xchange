@@ -23,13 +23,13 @@
 
 </head>
 <body>
-<h1 id="title">קניית מט&#8221;ח</h1>
+<h1 id="title">מכירת מט"ח</h1>
 <main>
-    <section id="form">
-        <form id="sellForm">
-            <input id="inpamunt" type="number" min="1" placeholder="*סכום">
-            <select id="seletCurr">
-                <option value="---" selected>בחר מטבע</option>
+    <section id="aform">
+        <div class="felement">
+            <input id="inpamunt" type="number" min="1" name="amaunt" placeholder="סכום" >
+            <select name="from" id="seletCurr" title="בחר מטבע להחלפה">
+                <option value="---">בחר מטבע</option>
                 <option value="USD">USD</option>
                 <option value="EURO">EURO</option>
                 <option value="AUD">AUD</option>
@@ -39,10 +39,13 @@
                 <option value="HKD">HKD</option>
                 <option value="CNY">CNY</option>
             </select>
-            <div class="clear"></div>
-            <input id="inpTime" type="text" placeholder="בחר שעה">
-            <input id="inpDate" type="text" placeholder="בחר תאריך">
-        </form>
+        </div>
+        <div class="felement">
+            <input id="inpTime" name="time" type="text">
+            <input id="inpDate" name="date" type="text">
+
+        </div>
+        <div class="clear"></div>
     </section>
     <input id="searchInput" class="controls" type="text" placeholder="חפש כתובת">
     <section id="map"></section>
