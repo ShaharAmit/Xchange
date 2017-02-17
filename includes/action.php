@@ -27,6 +27,30 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $result = $stmt->get_result();
         $stmt->close();
     }
+    elseif ($_GET["action"] == "publishSell"){
+        try{
+        $amount = $_GET["amount"];
+        $currency = $_GET["currency"];
+        $time = $_GET["time"];
+        $date = $_GET["date"];
+        $address = $_GET["address"];
+        $lat = $_GET["lat"];
+        $lng = $_GET["lng"];
+        $sellerId = $_GET["sellerId"];
+
+        $stmt = $conn->prepare("INSERT INTO tbl_234_xchange_deals (deals_seller_id,deals_amount,deals_currency,deals_date,deals_time,deals_location,deals_lat,deals_lng)
+                                VALUES (?,?,?,?,?,?,?,?)");
+        $stmt->bind_param("sissssss", $sellerId, $amount, $currency,$date,$time,$address,$lat,$lng);
+
+            $stmt->execute();
+            echo "ok";
+        }catch (Exception $e){
+            echo $e->getMessage();
+        }
+        finally{
+            $stmt->close();
+        }
+    }
 
     if ($result->num_rows > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -39,4 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     mysqli_free_result($result);
     $connection->close();
+
+
+
 }

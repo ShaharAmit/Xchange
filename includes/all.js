@@ -33,12 +33,12 @@ $(function(){
     });
 
 });
-var loggedUser = "";
-$.ajax({
-    url: "includes/session.php?",
-    data: {action: 'getUserId'},
-    type: 'GET',
-    success: function(logged) {
-        loggedUser = logged;
-    }
-});
+// var loggedUser = "";
+// $.ajax({
+//     url: "includes/session.php?",
+//     data: {action: 'getUserId'},
+//     type: 'GET',
+//     success: function(result) {
+//         loggedUser = result;
+//     }
+// });

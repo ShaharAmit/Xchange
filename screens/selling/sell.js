@@ -92,25 +92,42 @@ function initMap() {
 
 }
 function submiting() {
-    var amaunt = $("#inpamunt").first(),
-        currency =$("#seletCurr"),
-        time = $("#inpTime"),
-        date = $("#inpDate");
-    if(amaunt.eq(0).val() > 0 && currency.eq(0).val()!= "---" && addressName != ""){
-        //make ajeax and shit to post deal
-
-
-        //if secsedd then
-        $("body").append("<div id='coverBlack'></div>");
-        $("body").append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
-        $ ("#sellForm").submit(function (e) {
-            e.preventDefault();
-        });
-        $("#exit").click(function () {
-            location.reload();
-        });
-        $("#coverBlack").click(function () {
-            location.reload();
+    var amount = $("#inpamunt").eq(0).val(),
+        currency =$("#seletCurr").eq(0).val(),
+        time = $("#inpTime").eq(0).val(),
+        date = $("#inpDate").eq(0).val();
+    if(amount > 0 && currency != "---" && addressName != ""){
+       //save to db
+        $.ajax({
+            url: "../../includes/action.php?",
+            data: {
+                action: 'publishSell',
+                amount: amount,
+                currency: currency,
+                time: time,
+                date: date,
+                address: addressName,
+                lat: lat,
+                lng: lng,
+                sellerId: "12345678"
+            },
+            type: 'GET',
+            success: function(result) {
+                if(result == "ok"){
+                    alert("new recorf created!");
+                }
+                $("body").append("<div id='coverBlack'></div>");
+                $("body").append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
+                $ ("#sellForm").submit(function (e) {
+                    e.preventDefault();
+                });
+                $("#exit").click(function () {
+                    location.reload();
+                });
+                $("#coverBlack").click(function () {
+                    location.reload();
+                });
+            }
         });
     }
     else {
