@@ -103,5 +103,29 @@ header{
     width: 100%;
     z-index: 2;
 }
+@media (max-width: 780px) {
+    .cardsLeft > p, .cardsRight > p{
+        font-size: 4vw;
+    }
+    .cardsRight{
+        position: relative;
+        width: 75%;
+        height: 20vw;
+        background: #f9f9f9;
+        border-radius: 10px;
+        line-height: 36.6%;
+        margin-top: 10px;
+    }
+    .cardsLeft{
+        position: relative;
+        width: 50.5%;
+        height: 14vw;
+        float: left;
+        background: #f9f9f9;
+        border-radius: 10px;
+        line-height: 36.6%;
+        margin-top: 10px;
+    }
+}
 
 
