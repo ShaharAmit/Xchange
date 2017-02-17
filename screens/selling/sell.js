@@ -1,6 +1,9 @@
 /**
  * Created by danielluzgarten on 10/02/2017.
  */
+var lat="";
+var lng="";
+var addressName="";
 
 $("document").ready(function () {
     $("#inpDate").datepicker({minDate: 0});
@@ -74,12 +77,17 @@ function initMap() {
                 document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
             }
             if(place.address_components[i].types[0] == 'country'){
-                document.getElementById('country').innerHTML = place.address_components[i].long_name;
+                //document.getElementById('country').innerHTML = place.address_components[i].long_name;
             }
         }
-        document.getElementById('location').innerHTML = place.formatted_address;
-        document.getElementById('lat').innerHTML = place.geometry.location.lat();
-        document.getElementById('lon').innerHTML = place.geometry.location.lng();
+        // document.getElementById('location').innerHTML = place.formatted_address;
+        // document.getElementById('lat').innerHTML = place.geometry.location.lat();
+        // document.getElementById('lon').innerHTML = place.geometry.location.lng();
+
+        addressName = place.formatted_address;
+        lat = place.geometry.location.lat();
+        lng = place.geometry.location.lng();
+
     });
 
 }
@@ -88,8 +96,11 @@ function submiting() {
         currency =$("#seletCurr"),
         time = $("#inpTime"),
         date = $("#inpDate");
-    //sand items
-    if(amaunt.eq(0).val() > 0 && currency.eq(0).val()!= "---"){
+    if(amaunt.eq(0).val() > 0 && currency.eq(0).val()!= "---" && addressName != ""){
+        //make ajeax and shit to post deal
+
+
+        //if secsedd then
         $("body").append("<div id='coverBlack'></div>");
         $("body").append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
         $ ("#sellForm").submit(function (e) {
@@ -101,10 +112,9 @@ function submiting() {
         $("#coverBlack").click(function () {
             location.reload();
         });
-        //send parms to server with loaction
     }
     else {
-        $("#aform").append("<p class='erorMes'>יש להזין סכום גדול מ1 וגם לבחור מטבע להחלפה</p>")
+        $("#aform").append("<p class='erorMes'>יש להזין סכום גדול מ-1 וגם לבחור מטבע ומיקום להחלפה</p>")
     }
 
 }
