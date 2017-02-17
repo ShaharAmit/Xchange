@@ -98,6 +98,7 @@ main{
 .underLine{
     text-decoration: underline;
 }
+
 nav div{
     background: red;
     width: 20px;
@@ -113,6 +114,54 @@ nav div p{
     line-height: 15px;
     color: white;
     font-weight: bold;
+}
+#coverBlack{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    top:0;
+    bottom: 0;
+    z-index: 2;
+    opacity: 0.8;
+}
+#userMessege{
+    position: absolute;
+    width: 45vw;
+    height: 23vw;
+    background-color: #ffffff;
+    z-index: 3;
+    border-radius: 10px;
+    top:50%;
+    left: 50%;
+    margin-top: -10vw;
+    margin-left: -22.5vw;
+    background-image: url("../img/sellSend.png");
+    background-repeat: no-repeat;
+    background-size:16vw 12vw;
+    background-position: center;
+    background-position-y: 30px;
+    font-size: 3vw;
+    font-family: Helvetica;
+    text-align: center;
+}
+#userMessege > p{
+    width: 40vw;
+    color: #4d90fe;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -20vw;
+}
+#exit{
+    position: absolute;
+    top:0.2vw;
+    right:0vw;
+    width: 2.2vw;
+    height: 2.2vw;
+    background: url("../img/exit.png") no-repeat;
+    background-size:2.2vw 2.2vw;
+    cursor:pointer
 }
 @media (max-width: 1000px) {
     #ul1 > li:nth-of-type(1){
