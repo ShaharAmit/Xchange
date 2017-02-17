@@ -92,11 +92,11 @@ main h1{
     padding-top: 10px;
 }
 .cont{
+    height: 100%;
     width: 66.66%;
     padding-top: 15px;
 }
-/*header*/
-header{
+header, nav{
     top: 0;
     position: fixed;
     margin: 0 auto;
@@ -105,26 +105,32 @@ header{
 }
 @media (max-width: 780px) {
     .cardsLeft > p, .cardsRight > p{
-        font-size: 4vw;
+        font-size: 3vw;
+    }
+    .cont{
+        width: 100%;
+        padding-top: 15px;
+        text-align: center;
     }
     .cardsRight{
         position: relative;
-        width: 75%;
-        height: 20vw;
+        width: 60%;
+        height: 25vw;
         background: #f9f9f9;
         border-radius: 10px;
         line-height: 36.6%;
         margin-top: 10px;
+        float: none;
     }
     .cardsLeft{
         position: relative;
-        width: 50.5%;
-        height: 14vw;
-        float: left;
+        width: 60%;
+        height: 25vw;
         background: #f9f9f9;
         border-radius: 10px;
         line-height: 36.6%;
         margin-top: 10px;
+        float: none;
     }
 }
 
