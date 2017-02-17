@@ -136,7 +136,7 @@ nav div p{
     left: 50%;
     margin-top: -10vw;
     margin-left: -22.5vw;
-    background-image: url("../img/sellSend.png");
+    background-image: url(../images/graphics/sellPublished.png);
     background-repeat: no-repeat;
     background-size:16vw 12vw;
     background-position: center;
@@ -159,7 +159,7 @@ nav div p{
     right:0vw;
     width: 2.2vw;
     height: 2.2vw;
-    background: url("../img/exit.png") no-repeat;
+    background: url(../images/buttons/btexit.png) no-repeat;
     background-size:2.2vw 2.2vw;
     cursor:pointer
 }
