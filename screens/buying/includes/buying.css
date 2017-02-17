@@ -27,19 +27,19 @@ body{
 }
 #listType{
     float: left !important;
-    background: url("../../../images/list.png") center center no-repeat;
+    background: url("../../../img/list.png") center center no-repeat;
 
 }
 #filCash{
-    background: url("../../../images/money-2.png") center center no-repeat;
+    background: url("../../../img/money-2.png") center center no-repeat;
 
 }
 #filLocation{
-    background: url("../../../images/maps-and-flags.png") center center no-repeat;
+    background: url("../../../img/maps-and-flags.png") center center no-repeat;
 }
 #filScore{
     width: 2vw !important;
-    background: url("../../../images/crownitem.png")  center center no-repeat;
+    background: url("../../../img/crownitem.png")  center center no-repeat;
 }
 #scrollBuying{
     width: 44vw;
@@ -48,7 +48,7 @@ body{
     padding-bottom: 15px;
 }
 section{
-    background: url("../../../images/mic.png") center center no-repeat;
+    background: url("../../../img/mic.png") center center no-repeat;
     background-size: 90%;
     width: 18%;
     height: 36%;
@@ -135,7 +135,7 @@ form > p:nth-of-type(4){
     bottom: 15px;
     left: 0;
     border-radius: 10px;
-    background: url(../../../images/search.png) no-repeat center center;
+    background: url(../../../img/search.png) no-repeat center center;
     background-size: 100%;
     cursor: pointer;
 }

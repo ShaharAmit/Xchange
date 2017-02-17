@@ -1,10 +1,8 @@
 $(function(){
-    var $header = $("body"),
-        $nav = $("header > button");
-    $header.prepend(
+    $("body").prepend(
         "<header>" +
-            "<div><a id='profile' href='../profile/index.html'></a></div>" +
-            "<button></button>" +
+            "<a id='profile' href='../profile/index.html'></a>" +
+            "<div id='navButton' title='nav'></div>" +
             "<a id='logo' href='../../index.html'></a>" +
         "</header>" +
         "<nav>" +
@@ -22,7 +20,15 @@ $(function(){
             "</ul>" +
         "</nav>"
     );
-    $nav.click(function () {
+    var nav = $("nav");
+    $("#navButton").click(function () {
+        if( nav.css('display') == 'block') {
+            console.log("here1");
+            nav.css('display','none');
+        } else {
+            nav.css('display','block');
+            console.log("here2");
 
+        }
     });
 });

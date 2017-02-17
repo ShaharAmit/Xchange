@@ -32,46 +32,28 @@ header{
     border-radius: 50%;
 }
 nav{
-    position: absolute;
-    top: 0;
-    left: 0;
+    float: right;
+    position: fixed;
     right: 0;
-    width: 100%;
-    z-index: 2;
-    pointer-events: none;
-}
-nav > ul{
-    display: inline-block;
-    width: 33%;
-    pointer-events: auto;
-}
-header > button{
+    width: 120px;
+    top: 80px;
     display: none;
+    background: #7DB5F6;
+    height: 100%;
+    border: black solid 1px;
 }
-#ul1{
-    float: left;
-    margin-left: 5vw;
+#ul1 > li, #ul2 > li{
+    float: none;
+    text-align: right;
+    border-bottom: solid black 1px;
 }
-#ul2{
+#navButton{
     float: right;
-    width: 41%;
-}
-#ul1 > li:nth-of-type(1){
-    float: left;
-    margin-left: 10vw;
-}
-#ul1 > li:nth-of-type(2){
-    float: right;
-}
-#ul2 > li:nth-of-type(1){
-    float: right;
-    margin-right: 10vw;
-}
-nav li{
-    position: relative;
-}
-nav a {
-    font-size: 23px;
+    margin: 10px 10px 0 0;
+    width: 30px;
+    height: 30px;
+    background: red;
+    cursor: pointer;
 }
 #logo{
     background: url("../img/logo.png")  no-repeat;
@@ -82,13 +64,13 @@ nav a {
     margin: 2px 5vw 0 0;
 }
 main{
-    margin-top: 80px;
     width: 100%;
+    margin-top: 80px;
     height: 100%;
+    float: right;
 }
 #title {
-    text-align: right;
-    padding-right: 150px;
+    text-align: center;
     margin-top: 10px;
     font-family: 'Open Sans Hebrew', sans-serif;
     font-size: 2.5vw;
@@ -103,8 +85,8 @@ nav div{
     width: 20px;
     height: 15px;
     position: absolute;
-    left: -5px;
-    bottom: 7px;
+    left: 5px;
+    bottom: 12px;
     border-radius: 40%;
 }
 nav div p{
@@ -114,15 +96,6 @@ nav div p{
     color: white;
     font-weight: bold;
 }
-@media screen and (max-width: 1000px) {
-    #ul1 > li:nth-of-type(1){
-        margin-left: 4vw;
-    }
-    #ul2 > li:nth-of-type(1){
-        margin-right: 2vw;
-    }
-}
-
 
 
 
