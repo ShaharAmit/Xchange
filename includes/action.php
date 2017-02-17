@@ -13,15 +13,25 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $result = $stmt->get_result();
         $stmt->close();
 
-    } elseif ($_GET["action"] == "count"){
+    }
+    elseif ($_GET["action"] == "count"){
         $query = "SELECT COUNT(*) FROM tbl_users_234";
         $result = mysqli_query($connection,$query);
-    } elseif ($_GET["action"] == "people") {
-        $img = $_GET["img"];
-        $imgEnd = $img +19;
+    }
+    elseif ($_GET["action"] == "sellers") {
+        $amount = $_GET["amount"];
+        $currency = $_GET["currency"];
+        $toDate = $_GET["toDate"];
+        $fromDate = $_GET["fromDate"];
 
-        $stmt = $connection->prepare("SELECT * FROM tbl_details_234 WHERE I BETWEEN ? AND ?");
-        $stmt->bind_param('ii', $img, $imgEnd);
+
+        $stmt = $connection->prepare("SELECT * 
+                                      FROM tbl_234_xchange_deals 
+                                      WHERE (deals_currency  = ?)
+                                      AND (deals_amount BETWEEN ?-20 AND ?+50)
+                                      ");
+        $test ="USD";
+        $stmt->bind_param('sii',$test,$amount,$amount);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();

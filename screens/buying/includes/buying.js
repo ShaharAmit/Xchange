@@ -1,6 +1,6 @@
 $(function(){
     var clear=$("#clear"),
-        obj=$("div.clear", "#scrollBuying").last(),
+        obj=$("#clearing").last(),
         avatarsNum=0,
         form = $("form"),
         people=$("#scroll"),
@@ -10,12 +10,24 @@ $(function(){
         amount = $("#amount"),
         error = $(".error"),
         pictureURL,
+        sellerId,
+        sellerRank,
+        dealId,
+        address,
+        lng,
+        lat,
+        sellerTu,
+        sellerTd,
+        dealAmount,
+        toShekels,
+        sellerName,
+        sellerLastName,
         savedCoin,
         ILSAmount = $("#ilsAmount");
     $("li").last().addClass("underLine");
-    function InSection(){
+    function InSection(index,pictureURL){
         obj.before("<section></section>");
-        $("section").eq(avatarsNum).css('background-image', 'url(' + pictureURL + ')');
+        $("section").eq(index).css('background-image', 'url(' + pictureURL + ')');
         avatarsNum++;
     }
     function loadPeople() {
@@ -26,14 +38,19 @@ $(function(){
                 type: "GET",
                 url: "../../includes/action.php?",
                 data: {
-                    action: "people",
-                    img: avatarsNum + 1
+                    action: "sellers",
+                    fromDate: firDate.eq(0).val(),
+                    toDate: secDate.eq(0).val(),
+                    amount: amount.eq(0).val(),
+                    currency: form.eq(0).val()
                 },
                 dataType: 'json',
                 success: function (data) {
+                    alert(data.length);
                     $.each(data, function (index, element) {
-                        pictureURL = element.IMG;
-                        InSection();
+                        sellerId = element.deals_seller_id;
+                        pictureURL ="../../images/users/"+sellerId+".png";
+                        InSection(index,pictureURL);
                     });
                     $(".fa").remove();
                 }
@@ -69,9 +86,11 @@ $(function(){
             changeToILS(amount.val(),savedCoin);
         }
     });
-    firDate.datepicker({minDate: 0});
+    firDate.datepicker({minDate: 0,  dateFormat: "yy-mm-dd"
+    });
     firDate.datepicker().datepicker("setDate", new Date());
-    secDate.datepicker({minDate: 0});
+    secDate.datepicker({minDate: 0,  dateFormat: "yy-mm-dd"
+    });
     secDate.datepicker().datepicker("setDate", new Date());
     firDate.datepicker().change(function () {
         secDate.datepicker("setDate",firDate.datepicker().val());
