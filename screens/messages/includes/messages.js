@@ -46,6 +46,10 @@ $(function() {
                 createRow();
             });*/
             $(".fa").remove();
-        }
+        } ,
+        error: function (data) {
+        console.log(data);
+    }
+
     });
 });

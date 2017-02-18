@@ -1,5 +1,6 @@
 <?php
 include('db.php');
+echo "zibi";
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $arr = array();
     if($_GET["action"] == "getDeals") {
