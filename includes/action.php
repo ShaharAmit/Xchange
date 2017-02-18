@@ -60,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $stmt->close();
             }
     } elseif ($_GET["action"] == "getMessages"){
+        echo "here";
         /*try{
             echo "here";
             fName = element.FIRST_NAME;
