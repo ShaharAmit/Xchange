@@ -1,7 +1,6 @@
 $(function(){
     var clear=$("#clear"),
         obj=$("#clearing").last(),
-        avatarsNum=0,
         form = $("form"),
         people=$("#scroll"),
         button=$("#button"),
@@ -28,7 +27,6 @@ $(function(){
     function InSection(index,pictureURL){
         obj.before("<section></section>");
         $("section").eq(index).css('background-image', 'url(' + pictureURL + ')');
-        avatarsNum++;
     }
     function loadPeople() {
         try {
@@ -42,8 +40,9 @@ $(function(){
                     fromDate: firDate.eq(0).val(),
                     toDate: secDate.eq(0).val(),
                     amount: amount.eq(0).val(),
-                    currency: form.eq(0).val()
-                },
+                    currency: $("#coin").val()
+
+        },
                 dataType: 'json',
                 success: function (data) {
                     alert(data.length);

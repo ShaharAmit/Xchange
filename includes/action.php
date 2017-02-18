@@ -30,8 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                                       AND (deals_amount BETWEEN ?-20 AND ?+50)
                                       AND (deals_date BETWEEN ? AND ?)
                                       ");
-        $test ="USD";
-        $stmt->bind_param('siiss',$test,$amount,$amount,$fromDate,$toDate);
+        $stmt->bind_param('siiss',$currency,$amount,$amount,$fromDate,$toDate);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
