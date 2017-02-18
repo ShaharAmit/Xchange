@@ -69,6 +69,19 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $arr[] = $row;
         }
     }
+    elseif ($_GET["action"] == "getMeetings"){
+        $query = "SELECT m.messages_currency,m.messages_amount,m.messages_message,u.user_name,u.user_last_name,u.user_tumb_u,user_tumb_d,u.user_rank,u.user_phone,u.user_id
+                  FROM tbl_234_exchange_messages AS m 
+                  JOIN tbl_234_xchange_users AS u 
+                  ON m.messages_buyer_id = u.user_id
+                  ORDER BY m.messages_id ASC";
+        $result = mysqli_query($connection,$query);
+    }
+    if ($result->num_rows > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $arr[] = $row;
+        }
+    }
     header('Content-type: application/json');
     print json_encode($arr);
     mysqli_free_result($result);
