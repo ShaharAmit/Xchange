@@ -70,11 +70,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         }
     }
     elseif ($_GET["action"] == "getMeetings"){
-        $query = "SELECT m.messages_currency,m.messages_amount,m.messages_message,u.user_name,u.user_last_name,u.user_tumb_u,user_tumb_d,u.user_rank,u.user_phone,u.user_id
-                  FROM tbl_234_exchange_messages AS m 
-                  JOIN tbl_234_xchange_users AS u 
-                  ON m.messages_buyer_id = u.user_id
-                  ORDER BY m.messages_id ASC";
+        $query = "SELECT d.deals_seller_id, d.deals_buyer_id,d.deals_amount,d.deals_currency,d.deals_location,d.deals_lat,d.deals_lng,
+                  a.user_name AS 'sell.um',a.user_rank AS 'sell.ur',b.user_name AS 'buy.un',b.user_rank AS 'buy.ur'
+                  FROM tbl_234_xchange_deals AS d
+                  JOIN tbl_234_xchange_users AS a
+                  ON a.user_id = d.deals_seller_id
+                  JOIN tbl_234_xchange_users AS b
+                  ON b.user_id = d.deals_buyer_id
+                  WHERE deals_status = 1 or deals_status=2";
         $result = mysqli_query($connection,$query);
     }
     if ($result->num_rows > 0) {

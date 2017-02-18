@@ -1,6 +1,5 @@
 $(function() {
     var main = $("main"),
-        savedData,
         fName,
         message,
         pictureURL,
@@ -42,7 +41,6 @@ $(function() {
                 },
                 dataType: 'json',
                 success: function (data) {
-                    savedData = data;
                     $.each(data, function(index, element) {
                         fName = element.user_name;
                         message = element.messages_message;

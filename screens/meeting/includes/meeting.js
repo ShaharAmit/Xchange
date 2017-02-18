@@ -1,16 +1,16 @@
 $(function(){
     var main = $("main"),
-        savedData,
-        fName,
-        message,
-        pictureURL,
-        rankURL,
-        currency,
+        sID,
+        dID,
         amount,
-        lName,
-        phone,
-        tumbD,
-        tumbU,
+        currency,
+        location,
+        lat,
+        lng,
+        sName,
+        sRank,
+        bName,
+        bRank,
         cells = 14,
         del = $(".delete"),
         detail = $(".details");
@@ -43,8 +43,10 @@ $(function(){
             dataType: 'json',
             success: function (data) {
                 savedData = data;
+                console.log(savedData);
                 $.each(data, function(index, element) {
-                    fName = element.user_name;
+                    /*deals_id	deals_seller_id	deals_buyer_id	deals_amount	deals_currency	deals_date	deals_time	deals_location	deals_lat	deals_lng	deals_status	deals_seller_feedback	deals_buyer_feedback*/
+                    /*fName = element.user_name;
                     message = element.messages_message;
                     pictureURL = "../../images/users/"+element.user_id+".png";
                     rankURL = "../../images/ranks/rank"+element.user_rank+".png";
@@ -54,7 +56,7 @@ $(function(){
                     tumbD = element.user_tumb_d;
                     tumbU = element.user_tumb_u;
                     lName = element.user_last_name;
-                    createRow();
+                    createRow();*/
                 });
                 del = $(".delete");
                 del.click(function () {

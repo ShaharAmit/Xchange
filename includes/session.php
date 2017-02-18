@@ -1,7 +1,6 @@
 <?php
 if ($_GET["action"] == "getUserId"){
     session_start();
-    $_SESSION["user_id"] = "23456789";
     echo $_SESSION["user_id"];
 }
 else if ($_GET["action"] == "setUser"){
