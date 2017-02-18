@@ -10,7 +10,7 @@ $(function() {
         phone,
         tumbD,
         tumbU,
-        cells = 14,
+        cells = 0,
         del = $(".delete"),
         detail = $(".details");
     function createRow(){

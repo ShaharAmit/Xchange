@@ -45,18 +45,20 @@ $(function(){
                 savedData = data;
                 console.log(savedData);
                 $.each(data, function(index, element) {
-                    /*deals_id	deals_seller_id	deals_buyer_id	deals_amount	deals_currency	deals_date	deals_time	deals_location	deals_lat	deals_lng	deals_status	deals_seller_feedback	deals_buyer_feedback*/
-                    /*fName = element.user_name;
-                    message = element.messages_message;
-                    pictureURL = "../../images/users/"+element.user_id+".png";
-                    rankURL = "../../images/ranks/rank"+element.user_rank+".png";
-                    currency = element.messages_currency;
-                    amount = element.messages_amount;
-                    phone = element.user_phone;
-                    tumbD = element.user_tumb_d;
-                    tumbU = element.user_tumb_u;
-                    lName = element.user_last_name;
-                    createRow();*/
+                    sID = element.deals_seller_id;
+                    dID = element.deals_buyer_id;
+                    amount = element.deals_amount;
+                    currency = element.deals_currency;
+                    location = element.deals_location;
+                    lat = element.deals_lat;
+                    lng = element.deals_lng;
+                    sName = element.sell_um;
+                    sRank = element.sell_ur;
+                    bName = element.buy_un;
+                    bRank = element.buy_ur;
+/*
+                    createRow();
+*/
                 });
                 del = $(".delete");
                 del.click(function () {
