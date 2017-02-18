@@ -23,7 +23,7 @@ header{
     text-align: center;
 }
 #profile{
-    background: url("../img/profileAvater.png") no-repeat;
+    background: no-repeat;
     background-size: 100%;
     width: 45px;
     height: 45px;

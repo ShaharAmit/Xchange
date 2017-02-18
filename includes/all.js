@@ -20,7 +20,24 @@ $(function(){
             "</ul>" +
         "</nav>"
     );
-    var nav = $("nav");
+    function log() {
+        $.ajax({
+            type: "GET",
+            url: "../../includes/session.php?",
+            data:{
+                action: "getUserId"
+            },
+            dataType: 'json',
+            success: function (data) {
+                id = data.id;
+                var picUrl = "../../images/users/" + id.user_id + ".png";
+                $("#profile").css('background-image', 'url(' + picUrl + ')');
+            }
+        });
+    }
+    log();
+    var nav = $("nav"),
+        id;
     $("#navButton").click(function () {
         if( nav.css('display') == 'block') {
             console.log("here1");
