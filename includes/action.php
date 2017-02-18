@@ -25,8 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $toDate = $_GET["toDate"];
         $fromDate = $_GET["fromDate"];
 
-        $stmt = $connection->prepare("SELECT *
-                                      FROM tbl_234_xchange_deals
+        $stmt = $connection->prepare("
+                                      SELECT *
+                                      FROM tbl_234_xchange_deals AS d
+                                      JOIN tbl_234_xchange_users AS u
+                                      ON   d.deals_seller_id = u.user_id
                                       WHERE (deals_currency  = ?)
                                       AND (deals_amount BETWEEN ?-20 AND ?+50)
                                       AND (deals_date BETWEEN ? AND ?)
