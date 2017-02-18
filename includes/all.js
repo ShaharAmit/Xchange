@@ -30,7 +30,8 @@ $(function(){
             dataType: 'json',
             success: function (data) {
                 id = data.id;
-                var picUrl = "../../images/users/" + id.user_id + ".png";
+                id = id.user_id;
+                var picUrl = "../../images/users/" + id + ".png";
                 $("#profile").css('background-image', 'url(' + picUrl + ')');
             }
         });

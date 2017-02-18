@@ -11,8 +11,9 @@ $(function(){
         sRank,
         bName,
         bRank,
-        cells = 14,
-        del = $(".delete"),
+        status,
+        cells = 0,
+        body = $("body"),
         detail = $(".details");
     function createRow(name,imageUrl,rankUrl){
         main.append("<section class='row'>"+
@@ -20,19 +21,19 @@ $(function(){
                 "<section class='cell'><p>"+name+"</p></section>" +
                 "<section  class='cell'></section>" +
                 "<section class='cell'><p>"+location+"</p></section>" +
-                "<section class='cell'><p>"+amount+currency+"</p></section>" +
+                "<section class='cell'><p>"+status+"</p></section>" +
                 "<section  class='cell tumbD'></section>" +
                 "<section  class='cell tumbU'></section>" +
                 "<section  class='cell details'></section>" +
             "</section>"
         );
         var cell = $(".cell");
-        cell.eq(cells).parent().data({lName:lName,phone:phone,tumbU:tumbU,tumbD:tumbD,fName:fName,
-            message:message,pictureURL:pictureURL,rankURL:rankURL,amount:amount,currency:currency});
-        cell.eq(cells).css('background-image', 'url('+pictureURL+')');
+        cell.eq(cells).parent().data({sID:sID,bID:bID,amount:amount,currency:currency,location:location,
+            lat:lat,lng:lng,sName:sName,sRank:sRank,bName:bName,bRank:bRank,status:status});
+        cell.eq(cells).css('background-image', 'url('+"../../images/users/"+imageUrl+".png"+')');
         cells+=2;
-        cell.eq(cells).css('background-image', 'url('+rankURL+')');
-        cells+=5;
+        cell.eq(cells).css('background-image', 'url('+"../../images/ranks/rank"+rankUrl+".png"+')');
+        cells+=6;
     }
     function checkID() {
         $.ajax({
@@ -46,12 +47,16 @@ $(function(){
                 id = data.id;
                 id = id.user_id;
                 if(id == sID){
-                    createRow(sName,sID,sRank);
-                }else if(id == bID){
                     createRow(bName,bID,bRank);
+                }else if(id == bID){
+                    createRow(sName,sID,sRank);
                 }
             }
         });
+        console.log("z");
+    }
+    function dealsInfo() {
+
     }
     function loadMeetings() {
         $.ajax({
@@ -74,11 +79,20 @@ $(function(){
                     sRank = element.sell_ur;
                     bName = element.buy_un;
                     bRank = element.buy_ur;
+                    status = element.deals_status;
+                    if(status == 1){
+                        status = "פעילה";
+                    }else if(status == 2){
+                        status = "בוצעה";
+                    }
+
+                    checkID();
                 });
                 detail = $(".details");
+                console.log(detail);
                 detail.click(function () {
                     sID = $(this).parent().data('sID');
-                    dID = $(this).parent().data('dID');
+                    bID = $(this).parent().data('bID');
                     amount = $(this).parent().data('amount');
                     currency = $(this).parent().data('currency');
                     location = $(this).parent().data('location');
@@ -88,6 +102,21 @@ $(function(){
                     sRank = $(this).parent().data('sRank');
                     bName = $(this).parent().data('bName');
                     bRank = $(this).parent().data('bRank');
+                    status = $(this).parent().data('status');
+
+                    console.log("hey");
+
+                    body.append("<div id='coverBlack'></div>");
+                    body.append("<div id='userMessege'><div id='exit'></div></div>");
+                    dealsInfo();
+                    $("#exit").click(function () {
+                        $("#userMessege").remove();
+                        $("#coverBlack").remove();
+                    });
+                    $("#coverBlack").click(function () {
+                        $("#userMessege").remove();
+                        $("#coverBlack").remove();
+                    });
                 });
             },
             error: function (data) {
