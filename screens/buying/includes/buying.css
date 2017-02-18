@@ -12,6 +12,7 @@ body{
 #scrollNav{
     height: 2.2vw;
     width: 31.8vw;
+    margin-bottom:30px ;
 }
 #scrollNav > p{
     direction: rtl;
@@ -176,6 +177,83 @@ form > p > span:nth-of-type(3){
     margin-top: 50px;
     display: none;
 }
-
+#map{
+    width: 16vw;
+    height: 9vw;
+    margin-top: 0.2vw;
+    float: right;
+    margin-right: 2vw;
+}
+.sellerName{
+    float: right;
+    margin-top: 2vw;
+    text-align: right;
+    width: 100%;
+    margin-right: 2vw;
+    margin-bottom: 0;
+}
+.dealinfo{
+    float: right;
+    text-align: right;
+    width: 50%;
+    font-size: 18px;
+    height: 1vw;
+    margin-right: 2vw;
+    padding-top: 0;
+    margin-top: 0.2vw;
+}
+.addressText {
+    float: right;
+    text-align: right;
+    width: 100%;
+    font-size: 18px;
+    height: 1vw;
+    margin-right: 2vw;
+    padding-top: 0;
+    margin-top: 0.3vw;
+}
+.priceing{
+    float: left;
+    text-align: left;
+    width: 30%;
+    font-size: 18px;
+    height: 1vw;
+    margin-left: 2vw;
+    padding-top: 0;
+    font-weight: 800;
+    margin-top: 0.2vw;
+}
+textarea{
+    width: 16vw;
+    height: 9vw;
+    margin-top: 0.2vw !important;
+    float: left;
+    margin-left: 2vw !important;
+    font-size: 25% !important;
+    text-align: right !important;
+    direction: rtl !important;
+}
+#btsend{
+    float: left;
+    width: 6vw;
+    height: 2vw;
+    border-radius: 10px;
+    background: url(../../../images/buttons/btSend.png) no-repeat;
+    background-size: 6vw 2vw;
+    cursor: pointer;
+    margin-left: -16vw !important;
+    margin-top: 10vw;
+}
+#btinfo{
+    float: left;
+    width: 6vw;
+    height: 2vw;
+    border-radius: 10px;
+    background: url(../../../images/buttons/btInfo.png) no-repeat;
+    background-size: 6vw 2vw;
+    cursor: pointer;
+    margin-left: -9vw !important;
+    margin-top: 10vw;
+}
 
 

@@ -119,6 +119,7 @@ function submiting() {
                 if(result.match("^ok")){
                     body.append("<div id='coverBlack'></div>");
                     body.append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
+                    $("#userMessege").css('background-image','url(../../images/graphics/sellPublished.png');
                     $ ("#sellForm").submit(function (e) {
                         e.preventDefault();
                     });
