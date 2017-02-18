@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         }
     }
     elseif ($_GET["action"] == "getMeetings"){
-        $query = "SELECT d.deals_seller_id, d.deals_buyer_id,d.deals_amount,d.deals_currency,d.deals_location,d.deals_lat,d.deals_lng,
+        $query = "SELECT d.deals_seller_id, d.deals_buyer_id,d.deals_amount,d.deals_status,d.deals_currency,d.deals_location,d.deals_lat,d.deals_lng,
                   a.user_name AS 'sell_um',a.user_rank AS 'sell_ur',b.user_name AS 'buy_un',b.user_rank AS 'buy_ur'
                   FROM tbl_234_xchange_deals AS d
                   JOIN tbl_234_xchange_users AS a

@@ -1,7 +1,7 @@
 $(function(){
     var main = $("main"),
         sID,
-        dID,
+        bID,
         amount,
         currency,
         location,
@@ -14,12 +14,12 @@ $(function(){
         cells = 14,
         del = $(".delete"),
         detail = $(".details");
-    function createRow(){
+    function createRow(name,imageUrl,rankUrl){
         main.append("<section class='row'>"+
                 "<section  class='cell'></section>" +
-                "<section class='cell'><p>"+fName+"</p></section>" +
+                "<section class='cell'><p>"+name+"</p></section>" +
                 "<section  class='cell'></section>" +
-                "<section class='cell'><p>"+message+"</p></section>" +
+                "<section class='cell'><p>"+location+"</p></section>" +
                 "<section class='cell'><p>"+amount+currency+"</p></section>" +
                 "<section  class='cell tumbD'></section>" +
                 "<section  class='cell tumbU'></section>" +
@@ -34,6 +34,25 @@ $(function(){
         cell.eq(cells).css('background-image', 'url('+rankURL+')');
         cells+=5;
     }
+    function checkID() {
+        $.ajax({
+            type: "GET",
+            url: "../../includes/session.php?",
+            data:{
+                action: "getUserId"
+            },
+            dataType: 'json',
+            success: function (data) {
+                id = data.id;
+                id = id.user_id;
+                if(id == sID){
+                    createRow(sName,sID,sRank);
+                }else if(id == bID){
+                    createRow(bName,bID,bRank);
+                }
+            }
+        });
+    }
     function loadMeetings() {
         $.ajax({
             type: "GET",
@@ -45,7 +64,7 @@ $(function(){
             success: function (data) {
                 $.each(data, function(index, element) {
                     sID = element.deals_seller_id;
-                    dID = element.deals_buyer_id;
+                    bID = element.deals_buyer_id;
                     amount = element.deals_amount;
                     currency = element.deals_currency;
                     location = element.deals_location;
@@ -55,7 +74,6 @@ $(function(){
                     sRank = element.sell_ur;
                     bName = element.buy_un;
                     bRank = element.buy_ur;
-                    createRow();
                 });
                 detail = $(".details");
                 detail.click(function () {
