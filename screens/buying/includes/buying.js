@@ -21,6 +21,7 @@ $(function(){
         savedCoin,
         lat,
         lng,
+        inNis,
         ILSAmount = $("#ilsAmount");
 
     $("li").last().addClass("underLine");
@@ -157,23 +158,12 @@ $(function(){
     }
     function dealsInfo (dAmount,dCurr,dAddress) {
         var usermassege = $("#userMessege");
-        var inIls;
-            $.getJSON("http://api.fixer.io/latest?base="+dCurr,function (data) {
-                var temp;
-                $.each(data, function(index, element) {
-                   temp =  Math.round((element.ILS * dAmount) * 100 )/100;
-                    if(!isNaN(temp)){
-                        inIls = temp;
-                        return true;
-                    }
-                    return true;
-                });
-            });
+        inNis =  getNis(dCurr,dAmount);
         usermassege.append("<h2 class ='sellerName'>מיכל שדה</h2>");
         usermassege.append("<h3 class ='dealinfo'> :מוכר/ת</h3>");
         usermassege.append("<h3 class ='priceing'>"+dAmount+" "+dCurr+"</h3>");
         usermassege.append("<h3 class ='dealinfo'>:ערך העסקה בשקלים</h3>");
-        usermassege.append("<h3 class ='priceing'>"+inIls+" ILS</h3>");
+        usermassege.append("<h3 id='nis' class ='priceing'>"+inNis+" NIS</h3>");
         usermassege.append("<h3 class ='addressText'>"+dAddress+"</h3>");
         usermassege.append("<div id="+'map'+"></div>");
         usermassege.append("<textarea rows='4' cols='50' placeholder='כתוב הודעה'>");
@@ -198,6 +188,22 @@ $(function(){
             $("#userMessege").remove();
             $("#coverBlack").remove();
         });
+    }
+    function getNis(dCurr,dAmount) {
+        var usermassege = $("#userMessege");
+        var temp = [];
+        try{
+            $.getJSON("http://api.fixer.io/latest?base="+dCurr,function (data) {
+                $.each(data, function(index, element) {
+                    temp.push(Math.round((element.ILS * dAmount) * 100 )/100);
+                    $("#nis").html(temp[2]+ " NIS");
+                });
+            });
+        } catch(err) {
+            alert("something went wrong "+err)
+        }
+        console.log(temp[2]);
+        return temp[2];
     }
 });
 
