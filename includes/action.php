@@ -60,10 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $stmt->close();
             }
     } elseif ($_GET["action"] == "getMessages"){
-        echo "here";
         /*try{
             echo "here";
-            /*fName = element.FIRST_NAME;
+            fName = element.FIRST_NAME;
             pictureURL = element.PICTURE;
             rankURL = element.RANK;
             currency = element.CURRENCY;
@@ -73,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             phone number
             like
             dislike
-            */
+
             $status = 1;
             $stmt = $connection->prepare("SELECT m.deals_currency, m.deals_amount, m.messages_message 
                                           FROM tbl_234_xchange_messages as m
