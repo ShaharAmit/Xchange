@@ -74,7 +74,7 @@ nav a {
     font-size: 23px;
 }
 #logo{
-    background: url("../img/logo.png")  no-repeat;
+    background: url("../images/graphics/logo.png")  no-repeat;
     background-size: 100%;
     width: 100px;
     height: 60px;
@@ -129,7 +129,6 @@ nav div p{
     position: absolute;
     width: 45vw;
     height: 23vw;
-    background-color: #ffffff;
     z-index: 3;
     border-radius: 10px;
     top:50%;
@@ -137,9 +136,8 @@ nav div p{
     margin-top: -10vw;
     margin-left: -22.5vw;
     /*background-image: url(../images/graphics/sellPublished.png);*/
-    background-repeat: no-repeat;
     background-size:16vw 12vw;
-    background-position: center;
+    background: #ffffff no-repeat center;
     background-position-y: 30px;
     font-size: 3vw;
     font-family: Helvetica;

@@ -3,7 +3,7 @@ $(function(){
         "<header>" +
             "<a id='profile' href='../profile/index.html'></a>" +
             "<div id='navButton' title='nav'></div>" +
-            "<a id='logo' href='../../index.html'></a>" +
+            "<a id='logo' href='../home/index.html'></a>" +
         "</header>" +
         "<nav>" +
             "<ul class='nav nav-pills' id='ul1'>" +

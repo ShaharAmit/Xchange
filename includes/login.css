@@ -1,0 +1,38 @@
+main{
+    margin: 40px 0 0 0;
+    text-align: center;
+}
+#logo{
+    background: url("../images/graphics/logo.png")  no-repeat;
+    background-size: 100%;
+    width: 20vw;
+    height: 10vw;
+    display: inline-block;
+}
+main > section:nth-of-type(1){
+    background: url("../images/buttons/facebookLogin.png")  no-repeat;
+    background-size: 100%;
+    width: 20vw;
+    height: 5vw;
+    display: inline-block;
+
+}
+main > section:nth-of-type(2){
+    background: url("../images/buttons/googleLogin.png")  no-repeat;
+    background-size: 100%;
+    width: 20vw;
+    height: 5vw;
+    display: inline-block;
+}
+input{
+    margin-bottom: 30px;
+    text-align: center;
+}
+button{
+    margin-bottom: 30px;
+    width: 5vw;
+    height: 2vw;
+}
+.clear{
+    clear: both;
+}

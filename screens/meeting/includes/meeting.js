@@ -16,13 +16,14 @@ $(function(){
         detail = $(".details");
     function createRow(){
         main.append("<section class='row'>"+
-            "<section  class='cell'></section>" +
-            "<section class='cell'><p>"+fName+"</p></section>" +
-            "<section  class='cell'></section>" +
-            "<section class='cell'><p>"+message+"</p></section>" +
-            "<section class='cell'><p>"+amount+currency+"</p></section>" +
-            "<section  class='cell delete'></section>" +
-            "<section  class='cell details'></section>" +
+                "<section  class='cell'></section>" +
+                "<section class='cell'><p>"+fName+"</p></section>" +
+                "<section  class='cell'></section>" +
+                "<section class='cell'><p>"+message+"</p></section>" +
+                "<section class='cell'><p>"+amount+currency+"</p></section>" +
+                "<section  class='cell tumbD'></section>" +
+                "<section  class='cell tumbU'></section>" +
+                "<section  class='cell details'></section>" +
             "</section>"
         );
         var cell = $(".cell");
@@ -42,8 +43,6 @@ $(function(){
             },
             dataType: 'json',
             success: function (data) {
-                savedData = data;
-                console.log(savedData);
                 $.each(data, function(index, element) {
                     sID = element.deals_seller_id;
                     dID = element.deals_buyer_id;
@@ -56,28 +55,21 @@ $(function(){
                     sRank = element.sell_ur;
                     bName = element.buy_un;
                     bRank = element.buy_ur;
-/*
                     createRow();
-*/
-                });
-                del = $(".delete");
-                del.click(function () {
-                    if(cells>7)
-                        cells = cells -7;
-                    $(this).parent().remove();
                 });
                 detail = $(".details");
                 detail.click(function () {
-                    fName = $(this).parent().data('fName');
-                    currency = $(this).parent().data('currency');
-                    message = $(this).parent().data('message');
-                    pictureURL = $(this).parent().data('pictureURL');
-                    rankURL = $(this).parent().data('rankURL');
+                    sID = $(this).parent().data('sID');
+                    dID = $(this).parent().data('dID');
                     amount = $(this).parent().data('amount');
-                    phone = $(this).parent().data('phone');
-                    tumbD = $(this).parent().data('tumbD');
-                    tumbU = $(this).parent().data('tumbU');
-                    lName = $(this).parent().data('lName');
+                    currency = $(this).parent().data('currency');
+                    location = $(this).parent().data('location');
+                    lat = $(this).parent().data('lat');
+                    lng = $(this).parent().data('lng');
+                    sName = $(this).parent().data('sName');
+                    sRank = $(this).parent().data('sRank');
+                    bName = $(this).parent().data('bName');
+                    bRank = $(this).parent().data('bRank');
                 });
             },
             error: function (data) {

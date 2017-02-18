@@ -12,12 +12,6 @@ $(function() {
         rowsNum,
         rank,
         userId;
-    $("a[href='../profile/index.html']").attr("href","./screens/profile/index.html");
-    $("a[href='../meeting/index.html']").attr("href","./screens/meeting/index.html");
-    $("a[href='../messages/index.html']").attr("href","./screens/messages/index.html");
-    $("a[href='../selling/index.html']").attr("href","./screens/selling/index.html");
-    $("a[href='../buying/index.html']").attr("href","./screens/buying/index.html");
-    $("a[href='../../index.html']").attr("href","./index.html");
     cont.before( "<div class='topLine'></div>" +
         "<div class='clear'></div>" +
         "<h1>מוצאים - מחליפים - חוסכים</h1>" +
@@ -28,7 +22,7 @@ $(function() {
     $(function () {
         $.ajax({
             type: "GET",
-            url: "includes/action.php?",
+            url: "../../includes/action.php?",
             data:{action: "sellersCount"},
             dataType: 'json',
             success: function (data) {
@@ -77,7 +71,7 @@ $(function() {
         disableScroll();
         $.ajax({
             type: "GET",
-            url: "includes/action.php?",
+            url: "../../includes/action.php?",
             data:{
                 action: "getDeals",
                 cards: cards+1
@@ -91,9 +85,9 @@ $(function() {
                     likes = element.user_tumb_u;
                     disLikes = element.user_tumb_d;
                     userId = element.user_id;
-                    pictureURL = "images/users/"+userId+".png";
+                    pictureURL = "../../images/users/"+userId+".png";
                     rank = element.user_rank;
-                    rankURL ="images/ranks/rank"+rank+".png";
+                    rankURL ="../../images/ranks/rank"+rank+".png";
                     if(index%2 == 0)
                         AddRight();
                     else
