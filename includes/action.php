@@ -60,7 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $stmt->close();
             }
     } elseif ($_GET["action"] == "getMessages"){
-        try{
+        echo "here";
+        /*try{
             echo "here";
             /*fName = element.FIRST_NAME;
             pictureURL = element.PICTURE;
@@ -85,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         }
         finally{
             $stmt->close();
-        }
+        }*/
     }
     if ($result->num_rows > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
