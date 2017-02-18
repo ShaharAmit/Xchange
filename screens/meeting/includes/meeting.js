@@ -27,6 +27,9 @@ $(function(){
                 "<section  class='cell details'></section>" +
             "</section>"
         );
+        function dealsInfo() {
+
+        }
         var cell = $(".cell");
         cell.eq(cells).parent().data({sID:sID,bID:bID,amount:amount,currency:currency,location:location,
             lat:lat,lng:lng,sName:sName,sRank:sRank,bName:bName,bRank:bRank,status:status});
@@ -34,6 +37,33 @@ $(function(){
         cells+=2;
         cell.eq(cells).css('background-image', 'url('+"../../images/ranks/rank"+rankUrl+".png"+')');
         cells+=6;
+        detail = $(".details");
+        detail.click(function () {
+            sID = $(this).parent().data('sID');
+            bID = $(this).parent().data('bID');
+            amount = $(this).parent().data('amount');
+            currency = $(this).parent().data('currency');
+            location = $(this).parent().data('location');
+            lat = $(this).parent().data('lat');
+            lng = $(this).parent().data('lng');
+            sName = $(this).parent().data('sName');
+            sRank = $(this).parent().data('sRank');
+            bName = $(this).parent().data('bName');
+            bRank = $(this).parent().data('bRank');
+            status = $(this).parent().data('status');
+
+            body.append("<div id='coverBlack'></div>");
+            body.append("<div id='userMessege'><div id='exit'></div></div>");
+            dealsInfo();
+            $("#exit").click(function () {
+                $("#userMessege").remove();
+                $("#coverBlack").remove();
+            });
+            $("#coverBlack").click(function () {
+                $("#userMessege").remove();
+                $("#coverBlack").remove();
+            });
+        });
     }
     function checkID() {
         $.ajax({
@@ -53,10 +83,6 @@ $(function(){
                 }
             }
         });
-        console.log("z");
-    }
-    function dealsInfo() {
-
     }
     function loadMeetings() {
         $.ajax({
@@ -87,36 +113,6 @@ $(function(){
                     }
 
                     checkID();
-                });
-                detail = $(".details");
-                console.log(detail);
-                detail.click(function () {
-                    sID = $(this).parent().data('sID');
-                    bID = $(this).parent().data('bID');
-                    amount = $(this).parent().data('amount');
-                    currency = $(this).parent().data('currency');
-                    location = $(this).parent().data('location');
-                    lat = $(this).parent().data('lat');
-                    lng = $(this).parent().data('lng');
-                    sName = $(this).parent().data('sName');
-                    sRank = $(this).parent().data('sRank');
-                    bName = $(this).parent().data('bName');
-                    bRank = $(this).parent().data('bRank');
-                    status = $(this).parent().data('status');
-
-                    console.log("hey");
-
-                    body.append("<div id='coverBlack'></div>");
-                    body.append("<div id='userMessege'><div id='exit'></div></div>");
-                    dealsInfo();
-                    $("#exit").click(function () {
-                        $("#userMessege").remove();
-                        $("#coverBlack").remove();
-                    });
-                    $("#coverBlack").click(function () {
-                        $("#userMessege").remove();
-                        $("#coverBlack").remove();
-                    });
                 });
             },
             error: function (data) {

@@ -24,9 +24,8 @@ $(function(){
         lat,
         lng,
         inNis,
-        loggedUser,
+        id,
         ILSAmount = $("#ilsAmount");
-    getloged();
     $("li").last().addClass("underLine");
     function InSection(i,picUrl,dId,lati,longt,damo,dcurren,daddress,sName,tu,td,sRank){
         obj.before("<section id="+dId+"></section>");
@@ -251,7 +250,6 @@ $(function(){
         return temp[2];
     }
     function getloged() {
-        var id;
         $.ajax({
             type: "GET",
             url: "../../includes/session.php?",
@@ -262,9 +260,9 @@ $(function(){
             success: function (data) {
                 id = data.id;
                 id = id.user_id;
-                loggedUser = id;
             }
         });
     }
+    getloged();
 });
 
