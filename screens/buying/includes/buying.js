@@ -24,12 +24,13 @@ $(function(){
         lat,
         lng,
         inNis,
+        loggedUser,
         ILSAmount = $("#ilsAmount");
-
+    getloged();
     $("li").last().addClass("underLine");
-    function InSection(i,picUrl,dId,lati,longt,damo,dcurren,daddress){
+    function InSection(i,picUrl,dId,lati,longt,damo,dcurren,daddress,sName,tu,td,sRank){
         obj.before("<section id="+dId+"></section>");
-        $("#"+dId).data({lat:lati,lng:longt,amount:damo,code:dcurren,location:daddress});
+        $("#"+dId).data({lat:lati,lng:longt,amount:damo,code:dcurren,location:daddress,sName:sName,tu:tu,td:td,sRank:sRank});
         $("section").eq(i).css('background-image', 'url(' + picUrl + ')');
     }
     function loadPeople() {
@@ -62,8 +63,14 @@ $(function(){
                         lat = element.deals_lat;
                         dealAmount = element.deals_amount;
                         dealCurrency = element.deals_currency;
-                        address = element.deals_location;
-                        InSection(index,pictureURL,dealId,lat,lng,dealAmount,dealCurrency,address);
+                        address ="מיקום ההחלפה:"+ " "+ element.deals_location ;
+                        sellerFullname =  element.user_name + " " +element.user_last_name;
+                        sellerTu = element.user_tumb_u;
+                        sellerTd = element.user_tumb_d;
+                        sellerRank = element.user_rank;
+                        userLat = element.user_lat;
+                        userLng = element.user_lng;
+                        InSection(index,pictureURL,dealId,lat,lng,dealAmount,dealCurrency,address,sellerFullname,sellerTu,sellerTd,sellerRank);
                     });
                     $("section").click(function (seller) {
                         var dlat = ($(seller.currentTarget).data('lat')),
@@ -71,10 +78,14 @@ $(function(){
                             damou = ($(seller.currentTarget).data('amount')),
                             dcode = ($(seller.currentTarget).data('code')),
                             daddre = ($(seller.currentTarget).data('location')),
+                            sellerName = ($(seller.currentTarget).data('sName')),
+                            sellertu = ($(seller.currentTarget).data('tu')),
+                            sellertd = ($(seller.currentTarget).data('td')),
+                            sellerRank =($(seller.currentTarget).data('sRank')),
                             body = $("body");
                         body.append("<div id='coverBlack'></div>");
                         body.append("<div id='userMessege'><div id='exit'></div></div>");
-                        dealsInfo(damou,dcode,daddre);
+                        dealsInfo(damou,dcode,daddre,sellerName);
                         initmap(dlat,dlng);
                         $("#btsend").click(function () {
                             $("#userMessege").empty();
@@ -96,8 +107,8 @@ $(function(){
             setTimeout(function () {
                 xhr.abort();
             },10000);
-        } catch (err){
-            alert("something went wrong"+err);
+        } catch (err) {
+            alert("something went wrong" + err);
         }
     }
     function changeToILS(currAmaountVal,type){
@@ -158,10 +169,10 @@ $(function(){
             map: map
         });
     }
-    function dealsInfo (dAmount,dCurr,dAddress) {
+    function dealsInfo (dAmount,dCurr,dAddress,nameOfseller) {
         var usermassege = $("#userMessege");
         inNis =  getNis(dCurr,dAmount);
-        usermassege.append("<h2 class ='sellerName'>מיכל שדה</h2>");
+        usermassege.append("<h2 class ='sellerName'>"+nameOfseller+"</h2>");
         usermassege.append("<h3 class ='dealinfo'> :מוכר/ת</h3>");
         usermassege.append("<h3 class ='priceing'>"+dAmount+" "+dCurr+"</h3>");
         usermassege.append("<h3 class ='dealinfo'>:ערך העסקה בשקלים</h3>");
@@ -181,6 +192,38 @@ $(function(){
         var usermassege = $("#userMessege");
         usermassege.append("<div id='exit'></div>");
         setexit();
+        $.ajax({
+            url: "../../includes/action.php?",
+            data: {
+                action: 'sendMassege',
+                userName: amount,
+                userRank: currency,
+                massege: time,
+                amount: date,
+                code: addressName,
+                buyerId: "12345678"
+            },
+            dataType: 'text',
+            type: 'GET',
+            success: function(result) {
+                console.log(result);
+                if(result.match("^ok")){
+                    body.append("<div id='coverBlack'></div>");
+                    body.append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
+                    $("#userMessege").css('background-image','url(../../images/graphics/sellPublished.png');
+                    $ ("#sellForm").submit(function (e) {
+                        e.preventDefault();
+                    });
+                    $("#exit").click(function () {
+                        location.reload();
+                    });
+                    $("#coverBlack").click(function () {
+                        location.reload();
+                    });
+                }
+            }
+        });
+
         usermassege.css('background-image','url(../../images/graphics/sendSecseded.png');
         usermassege.append("<p>ההודעה נשלחה בהצלחה</p>");
 
@@ -206,6 +249,22 @@ $(function(){
         }
         console.log(temp[2]);
         return temp[2];
+    }
+    function getloged() {
+        var id;
+        $.ajax({
+            type: "GET",
+            url: "../../includes/session.php?",
+            data:{
+                action: "getUserId"
+            },
+            dataType: 'json',
+            success: function (data) {
+                id = data.id;
+                id = id.user_id;
+                loggedUser = id;
+            }
+        });
     }
 });
 

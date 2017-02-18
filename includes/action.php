@@ -33,6 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                                       WHERE (deals_currency  = ?)
                                       AND (deals_amount BETWEEN ?-20 AND ?+50)
                                       AND (deals_date BETWEEN ? AND ?)
+                                      AND (deals_status = 0)
+                                      ORDER BY deals_amount DESC
                                       ");
         $stmt->bind_param('siiss',$currency,$amount,$amount,$fromDate,$toDate);
         $stmt->execute();
