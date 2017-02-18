@@ -1,6 +1,3 @@
-/**
- * Created by danielluzgarten on 10/02/2017.
- */
 var lat="";
 var lng="";
 var addressName="";
@@ -98,8 +95,8 @@ function submiting() {
     var amount = $("#inpamunt").eq(0).val(),
         currency =$("#seletCurr").eq(0).val(),
         time = $("#inpTime").eq(0).val(),
-        date = $("#inpDate").eq(0).val();
-        alert(date);
+        date = $("#inpDate").eq(0).val(),
+        body = $("body");
     if(amount > 0 && currency != "---" && addressName != ""){
        //save to db
         $.ajax({
@@ -115,22 +112,23 @@ function submiting() {
                 lng: lng,
                 sellerId: "12345678"
             },
+            dataType: 'text',
             type: 'GET',
             success: function(result) {
-                if(result == "ok"){
-                    alert("new recorf created!");
+                console.log(result);
+                if(result.match("^ok")){
+                    body.append("<div id='coverBlack'></div>");
+                    body.append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
+                    $ ("#sellForm").submit(function (e) {
+                        e.preventDefault();
+                    });
+                    $("#exit").click(function () {
+                        location.reload();
+                    });
+                    $("#coverBlack").click(function () {
+                        location.reload();
+                    });
                 }
-                $("body").append("<div id='coverBlack'></div>");
-                $("body").append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
-                $ ("#sellForm").submit(function (e) {
-                    e.preventDefault();
-                });
-                $("#exit").click(function () {
-                    location.reload();
-                });
-                $("#coverBlack").click(function () {
-                    location.reload();
-                });
             }
         });
     }

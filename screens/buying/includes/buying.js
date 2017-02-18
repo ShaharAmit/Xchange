@@ -38,7 +38,7 @@ $(function(){
                 type: "GET",
                 url: "../../includes/action.php?",
                 data: {
-                    action: "sellers",
+                    action: "getSellers",
                     fromDate: firDate.eq(0).val(),
                     toDate: secDate.eq(0).val(),
                     amount: amount.eq(0).val(),

@@ -28,7 +28,8 @@ $(function() {
     $(function () {
         $.ajax({
             type: "GET",
-            url: "includes/action.php?action=count",
+            url: "includes/action.php?",
+            data:{action: "sellersCount"},
             dataType: 'json',
             success: function (data) {
                 $.each(data, function(index, element) {
@@ -78,7 +79,7 @@ $(function() {
             type: "GET",
             url: "includes/action.php?",
             data:{
-                action: "data",
+                action: "getDeals",
                 cards: cards+1
             },
             dataType: 'json',

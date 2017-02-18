@@ -27,13 +27,13 @@ main{
 }
 #inpamunt{
     float: right;
-    text-align: right;
-    width: 6vw;
+    width: 7vw;
+    text-align: center;
 }
 #seletCurr{
     float: left;
     width: 14vw;
-    text-align: right;
+    text-align: center;
     display: block;
 
 }
@@ -46,19 +46,17 @@ main{
 #inpTime{
     float: right;
     text-align: center;
-    width: 6vw;
-
+    width: 7vw;
 }
 #buttonArea{
     margin-top: 20px;
-    text-align: center;
     text-align: center;
 }
 #publish{
     width: 6vw;
     height: 3vw;
     border-radius: 10px;
-    background:url(../../images/buttons/btPublish.png) no-repeat;
+    background:url(../../../images/buttons/btPublish.png) no-repeat;
     background-size: 6vw 3vw;
     cursor:pointer;
     margin: 0 auto;
