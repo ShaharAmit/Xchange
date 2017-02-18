@@ -15,8 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $stmt->close();
     }
     elseif ($_GET["action"] == "sellersCount"){
-        $query = "SELECT COUNT(*) 
-                  FROM tbl_users_234";
+        $query = "SELECT COUNT(*) FROM tbl_users_234";
         $result = mysqli_query($connection,$query);
     }
     elseif ($_GET["action"] == "getSellers") {
@@ -47,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $lng = $_GET["lng"];
             $sellerId = $_GET["sellerId"];
             $stmt = $connection->prepare("INSERT INTO tbl_234_xchange_deals (deals_seller_id,deals_amount,deals_currency,deals_date,deals_time,deals_location,deals_lat,deals_lng)
-                                          VALUES (?,?,?,?,?,?,?,?)");
+                                     VALUES (?,?,?,?,?,?,?,?)");
             $stmt->bind_param("sissssss", $sellerId, $amount, $currency,$date,$time,$address,$lat,$lng);
             $stmt->execute();
             echo "ok";
