@@ -26,10 +26,12 @@ $(function(){
         inNis,
         id,
         messege,
+        rankurl,
         viewtype = "grid";
         ILSAmount = $("#ilsAmount");
     $("li").last().addClass("underLine");
     function InSection(i,picUrl,dId,lati,longt,damo,dcurren,daddress,sName,tu,td,sRank,sid){
+        obj=$("#clearing").last();
         obj.before("<section id="+dId+"></section>");
         $("#"+dId).data({lat:lati,lng:longt,amount:damo,code:dcurren,location:daddress,sName:sName,tu:tu,td:td,sRank:sRank,sid:sid});
         $("section").eq(i).css('background-image', 'url(' + picUrl + ')');
@@ -71,13 +73,15 @@ $(function(){
                         sellerTu = element.user_tumb_u;
                         sellerTd = element.user_tumb_d;
                         sellerRank = element.user_rank;
+                        rankurl ="../../images/ranks/rank"+sellerRank+".png";
                         userLat = element.user_lat;
                         userLng = element.user_lng;
                         if(viewtype =="grid"){
+
                             InSection(index,pictureURL,dealId,lat,lng,dealAmount,dealCurrency,address,sellerFullname,sellerTu,sellerTd,sellerRank,sellerId);
                         }
                         else if(viewtype == "list"){
-                            createRow(index,pictureURL,dealId,lat,lng,dealAmount,dealCurrency,address,sellerFullname,sellerTu,sellerTd,sellerRank,sellerId);
+                            createRow(index,rankurl,pictureURL,dealId,lat,lng,dealAmount,dealCurrency,address,sellerFullname,sellerTu,sellerTd,sellerRank,sellerId);
                         }
                     });
                     $("section").click(function (seller) {
@@ -165,6 +169,8 @@ $(function(){
     });
     $("#listType").click(function () {
         $("#scrollBuying").empty();
+        $("#scrollBuying").append("<div id='clearing'></div>")
+        $("#scrollBuying").append("<div class='clear'></div>")
         if(viewtype == "grid"){
             $("#listType").css('background-image','url("../../images/buttons/btGrid.png');
             viewtype = "list";
@@ -213,13 +219,13 @@ $(function(){
     function sender (n,m,a,c,s){
     var usermassege = $("#userMessege");
         usermassege.append("<div id='exit'></div>");
-        console.log(n,"בדיקה",a,c,s,id);
+        console.log(n,m,a,c,s,id);
         $.ajax({
             url: "../../includes/action.php?",
             data: {
                 action: 'sendMassege',
                 deal_id: n,
-                message: "בדיקה",
+                message: "היי רוצה לקנות",
                 amount: a,
                 code: c,
                 buyer_Id:id,
@@ -282,7 +288,7 @@ $(function(){
         loadPeople("deals_amount");
     });
 
-    function createRow(i,picUrl,dId,lati,longt,damo,dcurren,daddress,sName,tu,td,sRank,sid) {
+    function createRow(i,rurl,picUrl,dId,lati,longt,damo,dcurren,daddress,sName,tu,td,sRank,sid) {
         var sb = $("#scrollBuying");
         sb.append("<div id ="+dId+" class='row'>"+
                 "<div id='pic' class='cell'></div>" +
@@ -290,9 +296,10 @@ $(function(){
                 "<div  id='rank' class='cell'></div>" +
                 "<div class='cell'><p>"+damo+" "+dcurren+"</p></div>" +
                 "</div>"
-        )
+        );
         $("#"+dId).data({lat:lati,lng:longt,amount:damo,code:dcurren,location:daddress,sName:sName,tu:tu,td:td,sRank:sRank,sid:sid});
         $(".row").find("#pic").eq(i).css('background-image', 'url(' + picUrl + ')');
+        $(".row").find("#rank").eq(i).css('background-image', 'url(' + rurl + ')');
     };
 
 });

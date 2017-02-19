@@ -266,7 +266,7 @@ textarea{
     margin-top: 10vw;
 }
 .row{
-    margin: 15px 0 0 0;
+    margin-right: -9vw ;
     padding-top: 15px;
     height: 8vw;
     width: 100%;
@@ -277,7 +277,18 @@ textarea{
     min-height: 6vw;
     text-align: center;
     margin-left: 5px;
+
     line-height: 6vw;
     background-size: 6vw 6vw;
+}
+#rank{
+
+    float: right;
+    min-width: 3vw;
+    min-height: 3vw;
+    text-align: center;
+    margin-left: 5px;
+    line-height: 6vw;
+    background-size: 3vw 3vw;
 }
 
