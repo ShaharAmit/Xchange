@@ -29,18 +29,25 @@ body{
 #listType{
     float: left !important;
     background: url("../../../images/buttons/btList.png") center center no-repeat;
+    cursor: pointer;
 
 }
 #filCash{
     background: url("../../../images/buttons/btMoney.png") center center no-repeat;
+    cursor: pointer;
+
 
 }
 #filLocation{
     background: url("../../../images/buttons/btLocations.png") center center no-repeat;
+    cursor: pointer;
+
 }
 #filScore{
     width: 2vw !important;
     background: url("../../../images/buttons/btCrown.png")  center center no-repeat;
+    cursor: pointer;
+
 }
 #scrollBuying{
     width: 44vw;
@@ -56,6 +63,9 @@ section{
     height: 36%;
     float: left;
     margin-right: 4%;
+    cursor: pointer;
+
+
 }
 /* form */
 form{

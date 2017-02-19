@@ -2,6 +2,7 @@ $(function() {
     var log=$("#login"),
         sec = $("section"),
         id,
+        rank,
         returnedId;
     function login() {
         $.ajax({

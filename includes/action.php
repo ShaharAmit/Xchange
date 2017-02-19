@@ -40,7 +40,29 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
-    } elseif ($_GET["action"] == "publishSell"){
+    }
+    elseif ($_GET["action"] == "sendMassege"){
+        try{
+            $amount = $_GET["amount"];
+            $currency = $_GET["code"];
+            $massege = $_GET["massege"];
+            $buyerid = $_GET["buyerId"];
+            $dealid = $_GET["dealid"];
+            $sid = $_GET["sid"];
+            $stmt = $connection->prepare("INSERT INTO tbl_234_exchange_messages (messages_deals_id,messages_seller_id,messages_buyer_id,messages_message,messages_amount,messages_currency)
+                                          VALUES (?,?,?,?,?,?,?,?)");
+            $stmt->bind_param("issis", $dealid, $sid,$buyerid,$massege,$amount,$currency);
+            $stmt->execute();
+            echo "ok";
+        }catch (Exception $e){
+            echo $e->getMessage();
+        }
+        finally{
+            $stmt->close();
+        }
+
+    }
+    elseif ($_GET["action"] == "publishSell"){
         try{
             $amount = $_GET["amount"];
             $currency = $_GET["currency"];

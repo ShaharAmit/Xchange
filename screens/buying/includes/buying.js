@@ -82,7 +82,7 @@ $(function(){
                             sellertu = ($(seller.currentTarget).data('tu')),
                             sellertd = ($(seller.currentTarget).data('td')),
                             sellerRank =($(seller.currentTarget).data('sRank')),
-                            sid =  ($(seller.currentTarget).id);
+                            sid =  seller.currentTarget.id;
                         body = $("body");
                         body.append("<div id='coverBlack'></div>");
                         body.append("<div id='userMessege'><div id='exit'></div></div>");
@@ -90,7 +90,13 @@ $(function(){
                         initmap(dlat,dlng);
                         $("#btsend").click(function () {
                             $("#userMessege").empty();
-                            massegesSeant(20,amount.eq(0).val(),1,messege,$("#coin").val(),sid);
+                            massegesSeant(sid,messege,);
+                                deal_id: n,
+                                massege: m,
+                                amount: a,
+                                code: c,
+                                buyerId:bi,
+                                sid: s
                         });
                         $("#btinfo").click(function () {
                             $("#userMessege").empty();
@@ -190,7 +196,31 @@ $(function(){
         usermassege.append("<div id='exit'></div>");
         setexit();
     }
-    function massegesSeant(did,amou,rank,msg,code,bId) {
+
+    function sender (n,m,a,c,bi,s) {
+        $.ajax({
+            url: "../../includes/action.php?",
+            data: {
+                action: 'sendMassege',
+                deal_id: n,
+                massege: m,
+                amount: a,
+                code: c,
+                buyerId:bi,
+                sid: s
+            },
+            dataType: 'text',
+            type: 'GET',
+            success: function(result) {
+                console.log(result);
+                if(result.match("^ok")){
+                    usermassege.css('background-image','url(../../images/graphics/sendSecseded.png');
+                    usermassege.append("<p>ההודעה נשלחה בהצלחה</p>");
+                }
+            }
+        });
+    }
+    function massegesSeant(pn,pm,pc,pbi,ps) {
         var usermassege = $("#userMessege");
         usermassege.append("<div id='exit'></div>");
         setexit();
@@ -204,12 +234,10 @@ $(function(){
             success: function (data) {
                 id = data.id;
                 id = id.user_id;
-                sender(did,amou,rank,msg,code,bId);
+                sender(pn,pm,pc,pbi,ps);
             }
         });
 
-        usermassege.css('background-image','url(../../images/graphics/sendSecseded.png');
-        usermassege.append("<p>ההודעה נשלחה בהצלחה</p>");
 
     }
     function setexit() {
@@ -219,7 +247,6 @@ $(function(){
         });
     }
     function getNis(dCurr,dAmount) {
-        var usermassege = $("#userMessege");
         var temp = [];
         try{
             $.getJSON("http://api.fixer.io/latest?base="+dCurr,function (data) {
@@ -231,40 +258,6 @@ $(function(){
         } catch(err) {
             alert("something went wrong "+err)
         }
-        console.log(temp[2]);
-        return temp[2];
     }
-    function sender (n,a,r,m,c,si) {
-        $.ajax({
-            url: "../../includes/action.php?",
-            data: {
-                action: 'sendMassege',
-                dealid: n,
-                massege: m,
-                amount: a,
-                code: c,
-                buyerId: id,
-                sid: si
-            },
-            dataType: 'text',
-            type: 'GET',
-            success: function(result) {
-                console.log(result);
-                if(result.match("^ok")){
-                    body.append("<div id='coverBlack'></div>");
-                    body.append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
-                    $("#userMessege").css('background-image','url(../../images/graphics/sellPublished.png');
-                    $ ("#sellForm").submit(function (e) {
-                        e.preventDefault();
-                    });
-                    $("#exit").click(function () {
-                        location.reload();
-                    });
-                    $("#coverBlack").click(function () {
-                        location.reload();
-                    });
-                }
-            }
-        });
-    }
+
 });
