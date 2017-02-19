@@ -91,7 +91,7 @@ $(function(){
             });
         });
     }
-    function checkID() {
+    function checkID(bName,bID,bRank,sName,sID,sRank) {
         $.ajax({
             type: "GET",
             url: "../../includes/session.php?",
@@ -138,7 +138,7 @@ $(function(){
                         status = "בוצעה";
                     }
 
-                    checkID();
+                    checkID(bName,bID,bRank,sName,sID,sRank);
                 });
             },
             error: function (data) {

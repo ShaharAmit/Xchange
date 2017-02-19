@@ -108,20 +108,56 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         }
     } elseif ($_GET["action"] == "getMessages"){
         try{
-        $stmt = $connection->prepare("SELECT m.messages_currency,m.messages_amount,m.messages_message,u.user_name,u.user_last_name,u.user_tumb_u,user_tumb_d,u.user_rank,u.user_phone,u.user_id
-                  FROM tbl_234_exchange_messages AS m 
-                  JOIN tbl_234_xchange_users AS u 
-                  ON m.messages_buyer_id = u.user_id AND m.messages_buyer_id = ?
-                  ORDER BY m.messages_id ASC");
-        $stmt->bind_param("s", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
+            $id = $_GET["id"];
+            $stmt = $connection->prepare("SELECT m.messages_currency,m.messages_deals_id,m.messages_id,m.messages_amount,m.messages_message,u.user_name,u.user_last_name,u.user_tumb_u,user_tumb_d,u.user_rank,u.user_phone,u.user_id
+                      FROM tbl_234_exchange_messages AS m 
+                      JOIN tbl_234_xchange_users AS u 
+                      ON m.messages_buyer_id = u.user_id AND m.messages_seller_id = ?
+                      ORDER BY m.messages_id ASC");
+            $stmt->bind_param("s", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
         } catch (Exception $e){
             echo $e->getMessage();
         } finally{
             $stmt->close();
         }
+    } elseif ($_GET["action"] == "deleteAllMessages"){
+        try{
+            $messageID = $_GET["messageID"];
+            $dealID= $_GET["dealID"];
+            $amount = $_GET["amount"];
+            $buyerID = $_GET["buyerID"];
+            $status = 1;
+            $stmt = $connection->prepare("UPDATE tbl_234_xchange_deals AS d
+                                          SET d.deals_buyer_id = ?, d.deals_amount = ?, d.deals_status =?
+                                          WHERE deals_id = ?");
+            $stmt->bind_param("siii", $buyerID, $amount, $status , $dealID);
+            $stmt->execute();
+            $stmt = $connection->prepare("DELETE FROM tbl_234_exchange_messages 
+                                          WHERE messages_deals_id = ?");
+            $stmt->bind_param("s",$dealID);
+            $stmt->execute();
+        } catch (Exception $e){
+            echo $e->getMessage();
+        } finally{
+            $stmt->close();
+        }
+        echo "ok";
+    } elseif ($_GET["action"] == "deleteMessage"){
+        try{
+            $messageID = $_GET["messageID"];
+            $stmt = $connection->prepare("DELETE FROM tbl_234_exchange_messages
+                                          WHERE messages_id = ?");
+            $stmt->bind_param("s", $messageID);
+            $stmt->execute();
+        } catch (Exception $e){
+            echo $e->getMessage();
+        } finally{
+            $stmt->close();
+        }
+        echo "ok";
     }
     if ($result->num_rows > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
