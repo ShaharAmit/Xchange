@@ -2,7 +2,8 @@ var lat="";
 var lng="";
 var addressName="";
 
-$("document").ready(function () {
+$(function () {
+    $("li").eq(2).addClass("underLine");
     $("#inpDate").datepicker({
         minDate: 0,
         dateFormat: "yy-mm-dd"

@@ -28,7 +28,7 @@
 <main>
     <section id="aform">
         <div class="felement">
-            <input id="inpamunt" type="number" min="1" name="amaunt" placeholder="סכום" >
+            <p id="con1"><input id="inpamunt" type="number" min="1" name="amaunt" placeholder="סכום"><span>*</span></p>
             <select name="from" id="seletCurr" title="בחר מטבע להחלפה">
                 <option value="---">בחר מטבע</option>
                 <option value="USD">USD</option>
@@ -41,12 +41,12 @@
                 <option value="CNY">CNY</option>
             </select>
         </div>
-        <div class="felement">
-            <input id="inpTime" name="time" type="text">
-            <input id="inpDate" name="date" type="text">
+        <div id="felement">
+            <p id="con2"><input id="inpTime" name="time" type="text" title="time"><span>*</span></p>
 
+            <p id="con3"><input id="inpDate" name="date" type="text" title="time"><span>*</span></p>
         </div>
-        <div class="clear"></div>
+        <div id="clear"></div>
     </section>
     <input id="searchInput" class="controls" type="text" placeholder="חפש כתובת">
     <section id="map"></section>

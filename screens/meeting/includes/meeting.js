@@ -16,6 +16,7 @@ $(function(){
         cells = 0,
         body = $("body"),
         detail = $(".details");
+    $("li").eq(0).addClass("underLine");
     function dealsInfo() {
         var userMes = $("#userMessege");
         userMes.append("<h1 class ='title'>"+status+"</h1>"+

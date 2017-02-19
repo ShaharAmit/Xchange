@@ -14,6 +14,53 @@ $(function() {
         body = $("body"),
         del = $(".delete"),
         detail = $(".details");
+    $("li").eq(1).addClass("underLine");
+    function dealsInfo() {
+        var userMes = $("#userMessege");
+        userMes.append(
+            "<section id='profilePic'>" +
+                "<section id='rank'></section>" +
+                "<section id='tumbU'><p></p></section>" +
+                "<section id='tumbD'><p></ptumbR></section>" +
+            "</section>" +
+            "<section><p id='name'></p></section>" +
+            "<section><p id='phone'></p></section>" +
+            "<section><p id='message'></p></section>" +
+            "<section></section>" +
+            "<section></section>"
+        );
+        var sec = userMes.find("> section"),
+            tumbUp = $("#tumbU"),
+            tumbDown = $("#tumbD");
+        sec.eq(0).css('background-image', 'url('+pictureURL+')');
+        $("#rank").css('background-image', 'url('+rankURL+')');
+        tumbUp.css('background-image', 'url("../../images/graphics/tumbUp.png")');
+        tumbDown.css('background-image', 'url("../../images/graphics/tumbDown.png")');
+        tumbUp.find("p").html(tumbU);
+        tumbDown.find("p").html(tumbD);
+        $("#name").html(fName + " " + lName);
+        $("#phone").html(phone);
+        $("#message").html(message);
+        sec.eq(4).css('background-image', 'url('+"../../images/buttons/btBack.png"+')');
+        sec.eq(5).css('background-image', 'url('+"../../images/buttons/btOK.png"+')');
+        sec.eq(4).click(function () {
+            $("#userMessege").remove();
+            $("#coverBlack").remove();
+        });
+        sec.eq(5).click(function () {
+            userMes.empty();
+            userMes.append(
+                "<div id='exit'></div>" +
+                "<section id='confirmed'></section>" +
+                "<p id='confirmedMessage'>העסקה אושרה בהצלחה</p>"
+            );
+            $("#confirmed").css('background-image', 'url('+"../../images/graphics/confirmed.png"+')');
+            $("#exit").click(function () {
+                $("#userMessege").remove();
+                $("#coverBlack").remove();
+            });
+        });
+    }
     function createRow(){
         main.append("<section class='row'>"+
             "<section  class='cell'></section>" +

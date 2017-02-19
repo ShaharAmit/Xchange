@@ -107,12 +107,21 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $stmt->close();
         }
     } elseif ($_GET["action"] == "getMessages"){
-        $query = "SELECT m.messages_currency,m.messages_amount,m.messages_message,u.user_name,u.user_last_name,u.user_tumb_u,user_tumb_d,u.user_rank,u.user_phone,u.user_id
+        try{
+        $stmt = $connection->prepare("SELECT m.messages_currency,m.messages_amount,m.messages_message,u.user_name,u.user_last_name,u.user_tumb_u,user_tumb_d,u.user_rank,u.user_phone,u.user_id
                   FROM tbl_234_exchange_messages AS m 
                   JOIN tbl_234_xchange_users AS u 
-                  ON m.messages_buyer_id = u.user_id
-                  ORDER BY m.messages_id ASC";
-        $result = mysqli_query($connection,$query);
+                  ON m.messages_buyer_id = u.user_id AND m.messages_buyer_id = ?
+                  ORDER BY m.messages_id ASC");
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        } catch (Exception $e){
+            echo $e->getMessage();
+        } finally{
+            $stmt->close();
+        }
     }
     if ($result->num_rows > 0) {
         while ($row = mysqli_fetch_assoc($result)) {

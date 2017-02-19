@@ -88,6 +88,38 @@ main{
     float: right;
     text-align: right;
 }
+#con1{
+    position: relative;
+    height: 100%;
+    width: 7vw;
+    margin: 0;
+    display: inline-block;
+    float: right;
+}
+#con2{
+    position: relative;
+    height: 100%;
+    width: 7vw;
+    display: inline-block;
+    float: right;
+    margin-top: 2vw;
+}
+#con3{
+    position: relative;
+    height: 100%;
+    width: 14vw;
+    display: inline-block;
+    float: left;
+    margin-top: 2vw;
+}
+#con1 > span, #con2 > span , #con3 > span{
+    position: absolute;
+    color: #ff0000;
+    top: 0;
+    right: 4px;
+    z-index: 1;
+}
+
 
 
 
