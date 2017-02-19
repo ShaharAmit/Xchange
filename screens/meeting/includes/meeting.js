@@ -12,9 +12,46 @@ $(function(){
         bName,
         bRank,
         status,
+        bAmount,
         cells = 0,
         body = $("body"),
         detail = $(".details");
+    function dealsInfo(bAmount) {
+        var userMes = $("#userMessege");
+        userMes.append("<h1 class ='title'>"+status+"</h1>"+
+            "<section><section></section><p id='buy'></p></section>" +
+            "<section><section></section><p id='sell'></p></section>" +
+            "<section></section>" +
+            "<div class='clear'></div>"+
+            "<section></section>" +
+            "<section><p id='location'></p></section>"
+        );
+        var sec = userMes.find("> section");
+        sec.eq(0).css('background-image', 'url('+"../../images/users/"+bID+".png"+')');
+        sec.eq(0).find("section").css('background-image', 'url('+"../../images/ranks/rank"+bRank+".png"+')');
+        sec.eq(2).css('background-image', 'url("../../images/graphics/convert.png")');
+        sec.eq(1).css('background-image', 'url('+"../../images/users/"+sID+".png"+')');
+        sec.eq(1).find("section").css('background-image', 'url('+"../../images/ranks/rank"+sRank+".png"+')');
+        $("#buy").html("ILS "+bAmount);
+        $("#sell").html(currency+ " " +amount);
+        $("#location").html(location);
+
+
+
+/*function changeToILS(currAmaountVal,type){
+ try{
+ $.getJSON("http://api.fixer.io/latest?base="+type,function (data) {
+ $.each(data, function(index, element) {
+ ILSAmount.html(Math.round((element.ILS * currAmaountVal) * 100 )/100);
+ });
+ });
+ } catch(err) {
+ alert("something went wrong "+err)
+ }
+
+ }*/
+
+    }
     function createRow(name,imageUrl,rankUrl){
         main.append("<section class='row'>"+
                 "<section  class='cell'></section>" +
@@ -27,9 +64,6 @@ $(function(){
                 "<section  class='cell details'></section>" +
             "</section>"
         );
-        function dealsInfo() {
-
-        }
         var cell = $(".cell");
         cell.eq(cells).parent().data({sID:sID,bID:bID,amount:amount,currency:currency,location:location,
             lat:lat,lng:lng,sName:sName,sRank:sRank,bName:bName,bRank:bRank,status:status});
@@ -54,7 +88,13 @@ $(function(){
 
             body.append("<div id='coverBlack'></div>");
             body.append("<div id='userMessege'><div id='exit'></div></div>");
-            dealsInfo();
+
+            $.getJSON("http://api.fixer.io/latest?base="+currency,function (data) {
+                $.each(data, function (index, element) {
+                    bAmount = (Math.round((element.ILS * amount) * 100) / 100);
+                });
+            });
+            dealsInfo(bAmount);
             $("#exit").click(function () {
                 $("#userMessege").remove();
                 $("#coverBlack").remove();

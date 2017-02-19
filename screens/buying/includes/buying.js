@@ -191,6 +191,7 @@ $(function(){
         var usermassege = $("#userMessege");
         usermassege.append("<div id='exit'></div>");
         setexit();
+
         $.ajax({
             url: "../../includes/action.php?",
             data: {

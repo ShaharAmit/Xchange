@@ -61,5 +61,70 @@ section > section:nth-of-type(8) {
     background-size: 100%;
     cursor: pointer;
 }
+#userMessege > section:nth-of-type(1){
+    position: relative;
+    margin-right: 2vw;
+    float: right;
+    background: no-repeat;
+    background-size: 100%;
+    height: 7vw;
+    width: 7vw;
+}
+#userMessege > section:nth-of-type(3){
+    background: no-repeat;
+    background-size: 100%;
+    height: 5vw;
+    width: 5vw;
+}
+#userMessege > section:nth-of-type(2){
+    position: relative;
+    margin-left: 2vw;
+    float: left;
+    background: no-repeat;
+    background-size: 100%;
+    height: 7vw;
+    width: 7vw;
+}
+#userMessege > section > section:nth-of-type(1){
+    position: absolute;
+    bottom: 0;
+    left: -1vw;
+    background: no-repeat;
+    background-size: 100%;
+    height: 2.5vw;
+    width: 2.5vw;
+}
+#userMessege > section > section:nth-of-type(2){
+    position: absolute;
+    bottom: 0;
+    left: -1vw;
+    background: no-repeat;
+    background-size: 100%;
+    height: 2.5vw;
+    width: 2.5vw;
+}
+#buy{
+    position: absolute;
+    bottom: -35px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+#sell{
+    position: absolute;
+    bottom: -35px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+#location{
+    position: absolute;
+    bottom: 5px;
+    font-size: 25px;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+}
+
 
 

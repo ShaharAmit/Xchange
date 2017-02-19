@@ -12,6 +12,7 @@ footer, header, article, section, main, nav, aside {
     display: block;
 }
 .clear{
+    clear: both;
 }
 header{
     height: 80px;
