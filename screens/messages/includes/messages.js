@@ -11,6 +11,7 @@ $(function() {
         tumbD,
         tumbU,
         cells = 0,
+        body = $("body"),
         del = $(".delete"),
         detail = $(".details");
     function createRow(){
@@ -72,6 +73,18 @@ $(function() {
                         tumbD = $(this).parent().data('tumbD');
                         tumbU = $(this).parent().data('tumbU');
                         lName = $(this).parent().data('lName');
+
+                        body.append("<div id='coverBlack'></div>");
+                        body.append("<div id='userMessege'><div id='exit'></div></div>");
+                        dealsInfo();
+                        $("#exit").click(function () {
+                            $("#userMessege").remove();
+                            $("#coverBlack").remove();
+                        });
+                        $("#coverBlack").click(function () {
+                            $("#userMessege").remove();
+                            $("#coverBlack").remove();
+                        });
                     });
                 },
             error: function (data) {

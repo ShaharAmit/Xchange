@@ -16,7 +16,7 @@ $(function(){
         cells = 0,
         body = $("body"),
         detail = $(".details");
-    function dealsInfo(bAmount) {
+    function dealsInfo() {
         var userMes = $("#userMessege");
         userMes.append("<h1 class ='title'>"+status+"</h1>"+
             "<section><section></section><p id='buy'></p></section>" +
@@ -32,24 +32,15 @@ $(function(){
         sec.eq(2).css('background-image', 'url("../../images/graphics/convert.png")');
         sec.eq(1).css('background-image', 'url('+"../../images/users/"+sID+".png"+')');
         sec.eq(1).find("section").css('background-image', 'url('+"../../images/ranks/rank"+sRank+".png"+')');
-        $("#buy").html("ILS "+bAmount);
-        $("#sell").html(currency+ " " +amount);
+        $("#sell").html(amount+ " " +currency);
         $("#location").html(location);
 
-
-
-/*function changeToILS(currAmaountVal,type){
- try{
- $.getJSON("http://api.fixer.io/latest?base="+type,function (data) {
- $.each(data, function(index, element) {
- ILSAmount.html(Math.round((element.ILS * currAmaountVal) * 100 )/100);
- });
- });
- } catch(err) {
- alert("something went wrong "+err)
- }
-
- }*/
+        $.getJSON("http://api.fixer.io/latest?base="+currency,function (data) {
+            $.each(data, function (index, element) {
+                bAmount = (Math.round((element.ILS * amount) * 100) / 100);
+                $("#buy").html(bAmount + " ILS");
+            });
+        });
 
     }
     function createRow(name,imageUrl,rankUrl){
@@ -88,13 +79,7 @@ $(function(){
 
             body.append("<div id='coverBlack'></div>");
             body.append("<div id='userMessege'><div id='exit'></div></div>");
-
-            $.getJSON("http://api.fixer.io/latest?base="+currency,function (data) {
-                $.each(data, function (index, element) {
-                    bAmount = (Math.round((element.ILS * amount) * 100) / 100);
-                });
-            });
-            dealsInfo(bAmount);
+            dealsInfo();
             $("#exit").click(function () {
                 $("#userMessege").remove();
                 $("#coverBlack").remove();
