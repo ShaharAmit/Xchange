@@ -99,7 +99,27 @@ function submiting() {
         date = $("#inpDate").eq(0).val(),
         body = $("body");
     if(amount > 0 && currency != "---" && addressName != ""){
+        $.ajax({
+            type: "GET",
+            url: "../../includes/session.php?",
+            data:{
+                action: "getUserId"
+            },
+            dataType: 'json',
+            success: function (data) {
+                id = data.id;
+                id = id.user_id;
+                savetoDb();
+            }
+        });
        //save to db
+
+    }
+    else {
+        $("#aform").append("<p class='erorMes'>יש להזין סכום גדול מ-1 וגם לבחור מטבע ומיקום להחלפה</p>")
+    }
+
+    function  savetoDb() {
         $.ajax({
             url: "../../includes/action.php?",
             data: {
@@ -111,7 +131,7 @@ function submiting() {
                 address: addressName,
                 lat: lat,
                 lng: lng,
-                sellerId: "12345678"
+                sellerId: id
             },
             dataType: 'text',
             type: 'GET',
@@ -133,9 +153,6 @@ function submiting() {
                 }
             }
         });
-    }
-    else {
-        $("#aform").append("<p class='erorMes'>יש להזין סכום גדול מ-1 וגם לבחור מטבע ומיקום להחלפה</p>")
     }
 
 }

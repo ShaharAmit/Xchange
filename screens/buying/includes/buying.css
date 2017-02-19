@@ -265,5 +265,19 @@ textarea{
     margin-left: -9vw !important;
     margin-top: 10vw;
 }
-
+.row{
+    margin: 15px 0 0 0;
+    padding-top: 15px;
+    height: 8vw;
+    width: 100%;
+}
+.cell{
+    float: right;
+    min-width: 6vw;
+    min-height: 6vw;
+    text-align: center;
+    margin-left: 5px;
+    line-height: 6vw;
+    background-size: 6vw 6vw;
+}
 

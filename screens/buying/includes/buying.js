@@ -26,6 +26,7 @@ $(function(){
         inNis,
         id,
         messege,
+        viewtype = "grid";
         ILSAmount = $("#ilsAmount");
     $("li").last().addClass("underLine");
     function InSection(i,picUrl,dId,lati,longt,damo,dcurren,daddress,sName,tu,td,sRank,sid){
@@ -72,7 +73,12 @@ $(function(){
                         sellerRank = element.user_rank;
                         userLat = element.user_lat;
                         userLng = element.user_lng;
-                        InSection(index,pictureURL,dealId,lat,lng,dealAmount,dealCurrency,address,sellerFullname,sellerTu,sellerTd,sellerRank,sellerId);
+                        if(viewtype =="grid"){
+                            InSection(index,pictureURL,dealId,lat,lng,dealAmount,dealCurrency,address,sellerFullname,sellerTu,sellerTd,sellerRank,sellerId);
+                        }
+                        else if(viewtype == "list"){
+                            createRow(index,pictureURL,dealId,lat,lng,dealAmount,dealCurrency,address,sellerFullname,sellerTu,sellerTd,sellerRank,sellerId);
+                        }
                     });
                     $("section").click(function (seller) {
                         var dlat = ($(seller.currentTarget).data('lat')),
@@ -134,7 +140,7 @@ $(function(){
             error.css("display","inline");
         else {
             error.css("display","none");
-            loadPeople("deals_amount");
+            loadPeople("deals_amount","grid");
             people.fadeIn();
             savedCoin = $("#coin").val();
             changeToILS(amount.val(),savedCoin);
@@ -155,13 +161,22 @@ $(function(){
     });
 
     $("#avatar").click(function () {
-        location.href = "../../profile/index.html";
+        location.href = "#";
     });
     $("#listType").click(function () {
-        window.location.href = '../tableView.html';
-    });
-    $("section").click(function () {
-        window.location.href = '../../requestBuyer/index.html';
+        $("#scrollBuying").empty();
+        if(viewtype == "grid"){
+            $("#listType").css('background-image','url("../../images/buttons/btGrid.png');
+            viewtype = "list";
+            loadPeople("deals_amount");
+
+        }
+        else if(viewtype == "list"){
+            $("#listType").css('background-image','url("../../images/buttons/btList.png');
+            viewtype = "grid";
+            loadPeople("deals_amount");
+
+        }
     });
     function initmap (lat,lng) {
         var uluru = {lat: parseFloat(lat), lng: parseFloat(lng)};
@@ -267,5 +282,17 @@ $(function(){
         loadPeople("deals_amount");
     });
 
+    function createRow(i,picUrl,dId,lati,longt,damo,dcurren,daddress,sName,tu,td,sRank,sid) {
+        var sb = $("#scrollBuying");
+        sb.append("<div id ="+dId+" class='row'>"+
+                "<div id='pic' class='cell'></div>" +
+                "<div class='cell'><p>"+sName+"</p></div>" +
+                "<div  id='rank' class='cell'></div>" +
+                "<div class='cell'><p>"+damo+" "+dcurren+"</p></div>" +
+                "</div>"
+        )
+        $("#"+dId).data({lat:lati,lng:longt,amount:damo,code:dcurren,location:daddress,sName:sName,tu:tu,td:td,sRank:sRank,sid:sid});
+        $(".row").find("#pic").eq(i).css('background-image', 'url(' + picUrl + ')');
+    };
 
 });
