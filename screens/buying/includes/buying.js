@@ -28,9 +28,9 @@ $(function(){
         messege,
         ILSAmount = $("#ilsAmount");
     $("li").last().addClass("underLine");
-    function InSection(i,picUrl,dId,lati,longt,damo,dcurren,daddress,sName,tu,td,sRank){
+    function InSection(i,picUrl,dId,lati,longt,damo,dcurren,daddress,sName,tu,td,sRank,sid){
         obj.before("<section id="+dId+"></section>");
-        $("#"+dId).data({lat:lati,lng:longt,amount:damo,code:dcurren,location:daddress,sName:sName,tu:tu,td:td,sRank:sRank});
+        $("#"+dId).data({lat:lati,lng:longt,amount:damo,code:dcurren,location:daddress,sName:sName,tu:tu,td:td,sRank:sRank,sid:sid});
         $("section").eq(i).css('background-image', 'url(' + picUrl + ')');
     }
     function loadPeople() {
@@ -70,7 +70,7 @@ $(function(){
                         sellerRank = element.user_rank;
                         userLat = element.user_lat;
                         userLng = element.user_lng;
-                        InSection(index,pictureURL,dealId,lat,lng,dealAmount,dealCurrency,address,sellerFullname,sellerTu,sellerTd,sellerRank);
+                        InSection(index,pictureURL,dealId,lat,lng,dealAmount,dealCurrency,address,sellerFullname,sellerTu,sellerTd,sellerRank,sellerId);
                     });
                     $("section").click(function (seller) {
                         var dlat = ($(seller.currentTarget).data('lat')),
@@ -82,7 +82,8 @@ $(function(){
                             sellertu = ($(seller.currentTarget).data('tu')),
                             sellertd = ($(seller.currentTarget).data('td')),
                             sellerRank =($(seller.currentTarget).data('sRank')),
-                            sid =  seller.currentTarget.id;
+                            sellerID = ($(seller.currentTarget).data('sid')),
+                            did =  seller.currentTarget.id,
                         body = $("body");
                         body.append("<div id='coverBlack'></div>");
                         body.append("<div id='userMessege'><div id='exit'></div></div>");
@@ -90,13 +91,8 @@ $(function(){
                         initmap(dlat,dlng);
                         $("#btsend").click(function () {
                             $("#userMessege").empty();
-                            massegesSeant(sid,messege,);
-                                deal_id: n,
-                                massege: m,
-                                amount: a,
-                                code: c,
-                                buyerId:bi,
-                                sid: s
+                            massegesSeant(did,messege,damou,dcode,sellerID);
+
                         });
                         $("#btinfo").click(function () {
                             $("#userMessege").empty();
@@ -197,16 +193,19 @@ $(function(){
         setexit();
     }
 
-    function sender (n,m,a,c,bi,s) {
+    function sender (n,m,a,c,s){
+    var usermassege = $("#userMessege");
+        usermassege.append("<div id='exit'></div>");
+        console.log(n,"בדיקה",a,c,s,id);
         $.ajax({
             url: "../../includes/action.php?",
             data: {
                 action: 'sendMassege',
                 deal_id: n,
-                massege: m,
+                massege: "בדיקה",
                 amount: a,
                 code: c,
-                buyerId:bi,
+                buyerId:id,
                 sid: s
             },
             dataType: 'text',
@@ -214,15 +213,13 @@ $(function(){
             success: function(result) {
                 console.log(result);
                 if(result.match("^ok")){
-                    usermassege.css('background-image','url(../../images/graphics/sendSecseded.png');
                     usermassege.append("<p>ההודעה נשלחה בהצלחה</p>");
+                    usermassege.css('background-image','url(../../images/graphics/sendSecseded.png');
                 }
             }
         });
     }
-    function massegesSeant(pn,pm,pc,pbi,ps) {
-        var usermassege = $("#userMessege");
-        usermassege.append("<div id='exit'></div>");
+    function massegesSeant(pn,pm,pa,pc,ps) {
         setexit();
         $.ajax({
             type: "GET",
@@ -234,7 +231,7 @@ $(function(){
             success: function (data) {
                 id = data.id;
                 id = id.user_id;
-                sender(pn,pm,pc,pbi,ps);
+                sender(pn,pa,pm,pc,ps);
             }
         });
 
