@@ -24,8 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $currency = $_GET["currency"];
         $toDate = $_GET["toDate"];
         $fromDate = $_GET["fromDate"];
+        $sortType = $_GET["sortType"];
 
-        $stmt = $connection->prepare("
+        if ($sortType == "deals_amount"){
+            $stmt = $connection->prepare("
                                       SELECT *
                                       FROM tbl_234_xchange_deals AS d
                                       JOIN tbl_234_xchange_users AS u
@@ -34,8 +36,23 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                                       AND (deals_amount BETWEEN ?-20 AND ?+50)
                                       AND (deals_date BETWEEN ? AND ?)
                                       AND (deals_status = 0)
-                                      ORDER BY deals_amount DESC
+                                      ORDER BY deals_amount DESC 
                                       ");
+        }
+        elseif ($sortType == "user_rank"){
+            $stmt = $connection->prepare("
+                                      SELECT *
+                                      FROM tbl_234_xchange_deals AS d
+                                      JOIN tbl_234_xchange_users AS u
+                                      ON   d.deals_seller_id = u.user_id
+                                      WHERE (deals_currency  = ?)
+                                      AND (deals_amount BETWEEN ?-20 AND ?+50)
+                                      AND (deals_date BETWEEN ? AND ?)
+                                      AND (deals_status = 0)
+                                      ORDER BY user_rank DESC 
+                                      ");
+        }
+
         $stmt->bind_param('siiss',$currency,$amount,$amount,$fromDate,$toDate);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -45,10 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         try{
             $amount = $_GET["amount"];
             $currency = $_GET["code"];
-            $massege = $_GET["massege"];
-            $buyerid = $_GET["buyerId"];
-            $dealid = $_GET["dealid"];
-            $sid = $_GET["sid"];
+            $massege = $_GET["message"];
+            $buyerid = $_GET["buyer_Id"];
+            $dealid = $_GET["deal_id"];
+            $sid = $_GET["selle_id"];
             $stmt = $connection->prepare("INSERT INTO tbl_234_exchange_messages 
                                          (
                                           messages_deals_id,

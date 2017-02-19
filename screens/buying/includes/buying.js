@@ -33,10 +33,11 @@ $(function(){
         $("#"+dId).data({lat:lati,lng:longt,amount:damo,code:dcurren,location:daddress,sName:sName,tu:tu,td:td,sRank:sRank,sid:sid});
         $("section").eq(i).css('background-image', 'url(' + picUrl + ')');
     }
-    function loadPeople() {
+    function loadPeople(sortType) {
         try {
             $('.fa').remove();
             form.before("<i class='fa fa-refresh fa-spin' style='font-size:60px; position: fixed; left: 50%; top: 80%;z-index: 5;'></i>");
+            console.log(sortType);
             var xhr = $.ajax({
                 type: "GET",
                 url: "../../includes/action.php?",
@@ -51,7 +52,8 @@ $(function(){
                     fromDate: "2017-01-01 00:00:00",
                     toDate: "2017-07-01 00:00:00",
                     amount: "100",
-                    currency: "USD"
+                    currency: "USD",
+                    sortType: sortType
                 },
                 dataType: 'json',
                 success: function (data) {
@@ -132,7 +134,7 @@ $(function(){
             error.css("display","inline");
         else {
             error.css("display","none");
-            loadPeople();
+            loadPeople("deals_amount");
             people.fadeIn();
             savedCoin = $("#coin").val();
             changeToILS(amount.val(),savedCoin);
@@ -202,11 +204,11 @@ $(function(){
             data: {
                 action: 'sendMassege',
                 deal_id: n,
-                massege: "בדיקה",
+                message: "בדיקה",
                 amount: a,
                 code: c,
-                buyerId:id,
-                sid: s
+                buyer_Id:id,
+                selle_id: s
             },
             dataType: 'text',
             type: 'GET',
@@ -231,7 +233,7 @@ $(function(){
             success: function (data) {
                 id = data.id;
                 id = id.user_id;
-                sender(pn,pa,pm,pc,ps);
+                sender(pn,pm,pa,pc,ps);
             }
         });
 
@@ -256,5 +258,14 @@ $(function(){
             alert("something went wrong "+err)
         }
     }
+    $("#filScore").click(function () {
+        $("section").remove();
+        loadPeople("user_rank");
+    });
+    $("#filCash").click(function () {
+        $("section").remove();
+        loadPeople("deals_amount");
+    });
+
 
 });
