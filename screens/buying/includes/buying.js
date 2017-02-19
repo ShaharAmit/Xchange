@@ -25,6 +25,7 @@ $(function(){
         lng,
         inNis,
         id,
+        messege,
         ILSAmount = $("#ilsAmount");
     $("li").last().addClass("underLine");
     function InSection(i,picUrl,dId,lati,longt,damo,dcurren,daddress,sName,tu,td,sRank){
@@ -51,7 +52,7 @@ $(function(){
                     toDate: "2017-07-01 00:00:00",
                     amount: "100",
                     currency: "USD"
-        },
+                },
                 dataType: 'json',
                 success: function (data) {
                     $.each(data, function (index, element) {
@@ -81,14 +82,15 @@ $(function(){
                             sellertu = ($(seller.currentTarget).data('tu')),
                             sellertd = ($(seller.currentTarget).data('td')),
                             sellerRank =($(seller.currentTarget).data('sRank')),
-                            body = $("body");
+                            sid =  ($(seller.currentTarget).id);
+                        body = $("body");
                         body.append("<div id='coverBlack'></div>");
                         body.append("<div id='userMessege'><div id='exit'></div></div>");
                         dealsInfo(damou,dcode,daddre,sellerName);
                         initmap(dlat,dlng);
                         $("#btsend").click(function () {
                             $("#userMessege").empty();
-                            massegesSeant();
+                            massegesSeant(20,amount.eq(0).val(),1,messege,$("#coin").val(),sid);
                         });
                         $("#btinfo").click(function () {
                             $("#userMessege").empty();
@@ -125,7 +127,7 @@ $(function(){
     form.submit(function(e) {
         e.preventDefault();
         if(amount.val()===""||firDate.val()===""||secDate.val()==="")
-                error.css("display","inline");
+            error.css("display","inline");
         else {
             error.css("display","none");
             loadPeople();
@@ -181,46 +183,28 @@ $(function(){
         usermassege.append("<textarea rows='4' cols='50' placeholder='כתוב הודעה'>");
         usermassege.append("<div id='btsend'></div>");
         usermassege.append("<div id='btinfo'></div>");
+        messege = $("textarea").eq(0).val();
     }
     function sellerInfo() {
         var usermassege = $("#userMessege");
         usermassege.append("<div id='exit'></div>");
         setexit();
     }
-    function massegesSeant() {
+    function massegesSeant(did,amou,rank,msg,code,bId) {
         var usermassege = $("#userMessege");
         usermassege.append("<div id='exit'></div>");
         setexit();
-
         $.ajax({
-            url: "../../includes/action.php?",
-            data: {
-                action: 'sendMassege',
-                userName: amount,
-                userRank: currency,
-                massege: time,
-                amount: date,
-                code: addressName,
-                buyerId: "12345678"
+            type: "GET",
+            url: "../../includes/session.php?",
+            data:{
+                action: "getUserId"
             },
-            dataType: 'text',
-            type: 'GET',
-            success: function(result) {
-                console.log(result);
-                if(result.match("^ok")){
-                    body.append("<div id='coverBlack'></div>");
-                    body.append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
-                    $("#userMessege").css('background-image','url(../../images/graphics/sellPublished.png');
-                    $ ("#sellForm").submit(function (e) {
-                        e.preventDefault();
-                    });
-                    $("#exit").click(function () {
-                        location.reload();
-                    });
-                    $("#coverBlack").click(function () {
-                        location.reload();
-                    });
-                }
+            dataType: 'json',
+            success: function (data) {
+                id = data.id;
+                id = id.user_id;
+                sender(did,amou,rank,msg,code,bId);
             }
         });
 
@@ -250,20 +234,37 @@ $(function(){
         console.log(temp[2]);
         return temp[2];
     }
-    function getloged() {
+    function sender (n,a,r,m,c,si) {
         $.ajax({
-            type: "GET",
-            url: "../../includes/session.php?",
-            data:{
-                action: "getUserId"
+            url: "../../includes/action.php?",
+            data: {
+                action: 'sendMassege',
+                dealid: n,
+                massege: m,
+                amount: a,
+                code: c,
+                buyerId: id,
+                sid: si
             },
-            dataType: 'json',
-            success: function (data) {
-                id = data.id;
-                id = id.user_id;
+            dataType: 'text',
+            type: 'GET',
+            success: function(result) {
+                console.log(result);
+                if(result.match("^ok")){
+                    body.append("<div id='coverBlack'></div>");
+                    body.append("<div id='userMessege'><p>המכירה פורסמה בהצלחה</p><div id='exit'></div></div>");
+                    $("#userMessege").css('background-image','url(../../images/graphics/sellPublished.png');
+                    $ ("#sellForm").submit(function (e) {
+                        e.preventDefault();
+                    });
+                    $("#exit").click(function () {
+                        location.reload();
+                    });
+                    $("#coverBlack").click(function () {
+                        location.reload();
+                    });
+                }
             }
         });
     }
-    getloged();
 });
-
